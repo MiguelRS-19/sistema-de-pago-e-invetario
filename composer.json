@@ -1,0 +1,7 @@
+{
+    "require": {
+        "mpdf/mpdf": "^8.2",
+        "ultramsg/whatsapp-php-sdk": "^2.0",
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
