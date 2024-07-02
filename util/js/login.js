@@ -25,8 +25,8 @@ $(document).ready(function(){
         if(respuesta.mensaje == 'success'){
           Swal.fire({
             icon: "success",
-            title: "Logueo",
-            text: "Se logueo exsitosamente!!!",
+            title: "Iniciar sesion",
+            text: "Se inició sesion exsitosamente!!!",
             showConfirmButton: false,
             timer: 1800
           }).then(() => {

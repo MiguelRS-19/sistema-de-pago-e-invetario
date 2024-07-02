@@ -105,32 +105,7 @@ $(document).ready(function(){
 
     function llenar_menu_superior(usuario) {
         let template = `
-            <button type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" aria-label="presionar">
-                <i class="fa fa-bars"></i>
-            </button>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown no-arrow d-sm-none">
-                    <a class="nav-link dropdown-toggle" id="searchDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-search fa-fw"></i>
-                    </a>
-                    <!-- Dropdown - Messages -->
-                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                        aria-labelledby="searchDropdown">
-                        <form class="form-inline mr-auto w-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small"
-                                    placeholder="Search for..." aria-label="Search"
-                                    aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" aria-label="buscar">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
 
                 <li id="cart-carrito" class="nav-item dropdown no-arrow mx-1" role="button">
                     <a class="nav-link dropdown-toggle"  id="messagesDropdown">
@@ -207,8 +182,8 @@ $(document).ready(function(){
                     <a class="nav-link dropdown-toggle" " id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span id="sesion_name" class="mr-2 d-none d-lg-inline text-gray-600 small">${usuario.nombre+' '+usuario.apellido}</span>
-                        <img id="sesion_avatar" class="img-profile rounded-circle"
-                            src="${usuario.avatar}" alt="Imagen usuario" >
+                        <img id="sesion_avatar" class="img-profile rounded-circle animate__animated animate__zoomIn"
+                            src="../util/img/user/${usuario.avatar}" alt="Imagen usuario" >
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -242,7 +217,7 @@ $(document).ready(function(){
         <li class="nav-item active">
             <a class="nav-link" href="control">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Panel control</span></a>
         </li>
 
         <!-- Divider -->
@@ -302,8 +277,9 @@ $(document).ready(function(){
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pagos:</h6>
-                    <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card"></i> Gestion Tipo pago</a>
-                    <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins"></i> Gestion Cuenta</a>
+                    <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card mr-2"></i>Gestion Tipo pago</a>
+                    <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins mr-2"></i>Gestion Cuenta</a>
+                    <a class="collapse-item" href="citas"><i class="fas fa-calendar-alt mr-2"></i>Gestion Citas</a>
                 </div>
             </div>
         </li>
@@ -324,9 +300,52 @@ $(document).ready(function(){
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Almacén:</h6>
-                    <a class="collapse-item" href="categoria"><i class="fas fa-fw fa-credit-card"></i> Gestion Categoria</a>
-                    <a class="collapse-item" href="marca"><i class="fas fa-fw fa-credit-card"></i> Gestion Marca</a>
-                    <a class="collapse-item" href="productos"><i class="fas fa-fw fa-coins"></i> Gestion Producto</a>
+                    <a class="collapse-item" href="categoria"><i class="fas fa-th-list mr-2"></i>Gestion Categoria</a>
+                    <a class="collapse-item" href="marca"><i class="fas fa-lg fa-tags mr-2"></i>Gestion Marca</a>
+                    <a class="collapse-item" href="productos"><i class="fas fa-lg fa-cube mr-2"></i>Gestion Producto</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+        Compras
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsecompra" aria-expanded="true"
+                aria-controls="collapsecompra">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Compras</span>
+            </a>
+            <div id="collapsecompra" class="collapse" aria-labelledby="headingcompra"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Compra:</h6>
+                    <a class="collapse-item" href="proveedor"><i class="fas fa-truck mr-2"></i>Gestion Proveedor</a>
+                    <a class="collapse-item" href="compras"><i class="fas fa-people-carry mr-2"></i>Gestion Compras</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+        Ventas
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseventa" aria-expanded="true"
+                aria-controls="collapseventa">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Ventas</span>
+            </a>
+            <div id="collapseventa" class="collapse" aria-labelledby="headingventa"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Venta:</h6>
+                    <a class="collapse-item" href="listVenta"><i class="fas fa-clipboard-list mr-2"></i></i>Listar ventas</a>
                 </div>
             </div>
         </li>
@@ -402,7 +421,7 @@ $(document).ready(function(){
         let response = await data.text();
         try {
             let usuario = JSON.parse(response);
-            if(usuario.length != 0 && usuario.idtipo !=3){
+            if(usuario.length != 0){
             llenar_menu_superior(usuario);
             llenar_menu_lateral(usuario);
             $('#cart-carrito').hide();
@@ -443,159 +462,156 @@ $(document).ready(function(){
     
         })
         if(data.ok){
-          let response = await data.text();
-          try {
-            let clientes = JSON.parse(response);
-            //console.log(clientes);
-            $('#clientes').DataTable({
-                data: clientes,
-                "aaSorting": [],
-                lengthMenu: [5,10, 25, 50, 75, 100],
-                "searching": true,
-                "scrollX":true,
-                "autoWidth":false,
-                columns: [
-                { data: 'id' },
-                { data: 'documento' },
-                { data: 'numero' },
-                { data: 'nombre' },
-                { data: 'apellido' },
-                { data: 'direccion' },
-                { data: 'telefono' },
-                { data: 'edad' },
-                {"render": function(data,type,datos,meta){
-                    let template = '';
-                    if(datos.estado =='A'){
-                        template+=`<td><span class="badge badge-success">Activo</span></td>`;
-                    }else{
-                        template+=`<td><span class="badge badge-secondary">Inactivo</span></td>`;
-                    }
-                    return template;
-                }}
-                ,
-                {"render": function(data,type,datos,meta){
-                    let template = '';
-                    if(datos.estado =='A'){
-                        template+=`
-                        <td><button id="${datos.id}"
-                        docum="${datos.documento}"
-                        dni="${datos.numero}"
-                        nombre="${datos.nombre}"
-                        apellido="${datos.apellido}"
-                        direccion="${datos.direccion}" 
-                        telefono="${datos.telefono}" 
-                        class="editar_cliente btn btn-circle btn-sm btn-outline-success ml-2 mb-2 mr-2" title="Editar cliente" data-toggle="modal" data-target="#editar_cliente"><i class="fas fa-pen-alt"></i></button>
-                        <button 
-                        id="${datos.id}"
-                        dni="${datos.numero}"
-                        nombre="${datos.nombre}"
-                        apellido="${datos.apellido}"
-                        direccion="${datos.direccion}" 
-                        telefono="${datos.telefono}" 
-                        estado="${datos.estado}" 
-                        type="button" data-toggle="modal" data-target="#ver_historial" class="ver btn btn-outline-info btn-circle btn-sm mb-2 ml-2 mr-2 " title="ver historial"><i class="fas fa-search"></i></button>
-                        <button id="${datos.id}"
-                        nombre="${datos.nombre}"
-                        apellido="${datos.apellido}"
-                        telefono="${datos.telefono}"
-                        data-toggle="modal" data-target="#mensaje_cli" class="mensaje btn btn-circle btn-sm ml-2 ml-2 mr-2 mb-2 btn-outline-success shadow-sm" title="Enviar al whatsapp"  type="button"><i class="fab fa-whatsapp"></i></button>
-                        <button id="${datos.id}"
-                        nombre="${datos.nombre}"
-                        apellido="${datos.apellido}"
-                        class="borrar btn btn-circle btn-sm btn-outline-danger ml-2" title="Eliminar cliente"><i class="fas fa-trash"></i></button>
-                        </td>
-                        `;
-                    }else if(datos.estado == 'I'){
-                        template+=`
-                            <button id="${datos.id}"
+            let response = await data.text();
+            try {
+                let clientes = JSON.parse(response);
+                $('#clientes').DataTable({
+                    data: clientes,
+                    "aaSorting": [],
+                    lengthMenu: [5,10, 25, 50, 75, 100],
+                    "searching": true,
+                    "scrollX":true,
+                    "autoWidth":false,
+                    columns: [
+                    { data: 'id' },
+                    { data: 'documento' },
+                    { data: 'numero' },
+                    { data: 'nombre' },
+                    { data: 'apellido' },
+                    { data: 'direccion' },
+                    { data: 'telefono' },
+                    { data: 'edad' },
+                    {"render": function(data,type,datos,meta){
+                        let template = '';
+                        if(datos.estado =='A'){
+                            template+=`<td><span class="badge badge-success">Activo</span></td>`;
+                        }else{
+                            template+=`<td><span class="badge badge-secondary">Inactivo</span></td>`;
+                        }
+                        return template;
+                    }}
+                    ,
+                    {"render": function(data,type,datos,meta){
+                        let template = '';
+                        if(datos.estado =='A'){
+                            template+=`
+                            <td><button id="${datos.id}"
                             docum="${datos.documento}"
                             dni="${datos.numero}"
                             nombre="${datos.nombre}"
                             apellido="${datos.apellido}"
                             direccion="${datos.direccion}" 
                             telefono="${datos.telefono}" 
-                            class="activar btn btn-circle btn-sm btn-outline-dark ml-2 mr-2 mb-2" title="Activar cliente"><i class="fas fa-plus"></i></button>
+                            class="editar_cliente btn btn-circle btn-sm btn-outline-success ml-2 mb-2 mr-2" title="Editar cliente" data-toggle="modal" data-target="#editar_cliente"><i class="fas fa-pen-alt"></i></button>
+                            <button 
+                            id="${datos.id}"
+                            dni="${datos.numero}"
+                            nombre="${datos.nombre}"
+                            apellido="${datos.apellido}"
+                            direccion="${datos.direccion}" 
+                            telefono="${datos.telefono}" 
+                            estado="${datos.estado}" 
+                            type="button" data-toggle="modal" data-target="#ver_historial" class="ver btn btn-outline-info btn-circle btn-sm mb-2 ml-2 mr-2 " title="ver historial"><i class="fas fa-search"></i></button>
+                            <button id="${datos.id}"
+                            nombre="${datos.nombre}"
+                            apellido="${datos.apellido}"
+                            telefono="${datos.telefono}"
+                            data-toggle="modal" data-target="#mensaje_cli" class="mensaje btn btn-circle btn-sm ml-2 ml-2 mr-2 mb-2 btn-outline-success shadow-sm" title="Enviar al whatsapp"  type="button"><i class="fab fa-whatsapp"></i></button>
+                            <button id="${datos.id}"
+                            nombre="${datos.nombre}"
+                            apellido="${datos.apellido}"
+                            class="borrar btn btn-circle btn-sm btn-outline-danger ml-2" title="Eliminar cliente"><i class="fas fa-trash"></i></button>
+                            </td>
                             `;
-                    }
-                    return template;
-                }}],
-              "language":espanol,
-              "destroy":true
-            })
-          } catch (error) {
-            console.error(error);
-            console.log(response);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
-            })
-          }
-    
+                        }else if(datos.estado == 'I'){
+                            template+=`
+                                <button id="${datos.id}"
+                                docum="${datos.documento}"
+                                dni="${datos.numero}"
+                                nombre="${datos.nombre}"
+                                apellido="${datos.apellido}"
+                                direccion="${datos.direccion}" 
+                                telefono="${datos.telefono}" 
+                                class="activar btn btn-circle btn-sm btn-outline-dark ml-2 mr-2 mb-2" title="Activar cliente"><i class="fas fa-plus"></i></button>
+                                `;
+                        }
+                        return template;
+                    }}],
+                "language":espanol,
+                "destroy":true
+                })
+            } catch (error) {
+                console.error(error);
+                console.log(response);
+                Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+                })
+            }
         }else{
-          Swal.fire({
-            icon: 'error',
-            title: data.statusText,
-            text: 'Hubo conflicto de codigo:'+data.status
-          })
+            Swal.fire({
+                icon: 'error',
+                title: data.statusText,
+                text: 'Hubo conflicto de codigo:'+data.status
+            })
         }
     
     }
 
     async function registro_clientes(datos){
         let data = await fetch('../controllers/ClienteController.php',{
-          method: "POST",
-          //en este caso ya no necesita headers por tema de fordata
-          //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-          body: datos
+            method: "POST",
+            //en este caso ya no necesita headers por tema de fordata
+            //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: datos
     
         })
         if(data.ok){
-          let response = await data.text();
-          try {
-            let respuesta = JSON.parse(response);
-            console.log(respuesta);
-            if(respuesta.mensaje == 'success'){
-                toastr.success('Se registro el cliente','Exito!')
-                obtener_clientes();
-                $('#crear_cliente').modal('hide');
-                $("#form-registrar").trigger('reset');
-                $('#docum').val('').trigger('change');
-            }else if(respuesta.mensaje == 'error_cliente'){
+            let response = await data.text();
+            try {
+                let respuesta = JSON.parse(response);
+                if(respuesta.mensaje == 'success'){
+                    toastr.success('Se registro el cliente','Exito!')
+                    obtener_clientes();
+                    $('#crear_cliente').modal('hide');
+                    $("#form-registrar").trigger('reset');
+                    $('#docum').val('').trigger('change');
+                }else if(respuesta.mensaje == 'error_cliente'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'El cliente ya existe',
+                        text: 'El cliente ya existe, pongase en contacto con el administrador del sistema'
+                    });
+                    $("#form-registrar").trigger('reset');
+                    $('#docum').val('').trigger('change');
+                }else if(respuesta.mensaje == 'error_sesion'){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Sesión finalizada',
+                        showConfirmButton: false,
+                        timer: 1000,
+                    }).then(function(){
+                        location.href= '../index';
+                    })
+                }
+            } catch (error) {
+                console.error(error);
+                console.log(response);
                 Swal.fire({
-                    icon: 'error',
-                    title: 'El cliente ya existe',
-                    text: 'El cliente ya existe, pongase en contacto con el administrador del sistema'
-                });
-                $("#form-registrar").trigger('reset');
-                $('#docum').val('').trigger('change');
-            }else if(respuesta.mensaje == 'error_sesion'){
-                Swal.fire({
-                    position: 'center',
-                    icon: 'error',
-                    title: 'Sesión finalizada',
-                    showConfirmButton: false,
-                    timer: 1000,
-                }).then(function(){
-                    location.href= '../index';
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
                 })
             }
-          } catch (error) {
-            console.error(error);
-            console.log(response);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
-            })
-          }
     
         }else{
-          Swal.fire({
-            icon: 'error',
-            title: data.statusText,
-            text: 'Hubo conflicto de codigo:'+data.status
-          })
+            Swal.fire({
+                icon: 'error',
+                title: data.statusText,
+                text: 'Hubo conflicto de codigo:'+data.status
+            })
         }
     
     }
@@ -619,6 +635,9 @@ $(document).ready(function(){
             },
             num: {
                 required: true,
+                number: true,
+                minlength: 8,
+                maxlength: 8
             },
             nombre: {
                 required: true,
@@ -647,6 +666,9 @@ $(document).ready(function(){
             },
             num: {
                 required: "*Porfavor, Ingrese su numero",
+                number: "*El dato debe ser numéricos",
+                minlength: "*Se permite minimo 8 caracteres",
+                maxlength: "*Se permite maximo 8 caracteres"
             },
             nombre: {
                 required: "*Porfavor, Ingrese su nombre",
@@ -682,135 +704,6 @@ $(document).ready(function(){
         }
     });
 
-
-    $(document).on('click','.confirmar',(e)=>{
-        let elemento = $(this)[0].activeElement;
-        let id = $(elemento).attr('id');
-        let nombre = $(elemento).attr('nombre');
-        let apellido = $(elemento).attr('apellido');
-        let avatar = $(elemento).attr('avatar');
-        let funcion = $(elemento).attr('funcion');
-        console.log(funcion);
-        $('#nombre_confirmar').text(nombre);
-        $('#apellido_confirmar').text(apellido);
-        $('#avatar_confirmar').attr('src','../util/img/user/'+avatar);
-        $('#id_usuario').val(id);
-        $('#funcion').val(funcion);
-    });
-
-    async function confirmar(datos){
-        let data = await fetch('../controllers/UsuarioController.php',{
-          method: "POST",
-          //en este caso ya no necesita headers por tema de fordata
-          //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-          body: datos
-    
-        })
-        if(data.ok){
-          let response = await data.text();
-          try {
-            let respuesta = JSON.parse(response);
-            console.log(respuesta);
-            if(respuesta.mensaje == 'success'){
-                if(respuesta.funcion == 'eliminar usuario'){
-                    toastr.success('Se elimino al usuario','Exito!')
-                    obtener_usuarios();
-                    $('#confirmar').modal('hide');
-                    $("#form_confirmar").trigger('reset');
-                }
-                else if(respuesta.funcion == 'activar usuario'){
-                    toastr.success('Se activo al usuario','Exito!')
-                    obtener_usuarios();
-                    $('#confirmar').modal('hide');
-                    $("#form_confirmar").trigger('reset');
-                }else if(respuesta.funcion == 'ascender usuario'){
-                    toastr.success('Se ascendió al usuario','Exito!')
-                    obtener_usuarios();
-                    $('#confirmar').modal('hide');
-                    $("#form_confirmar").trigger('reset');
-                }else if(respuesta.funcion == 'descender usuario'){
-                    toastr.success('Se descendió al usuario','Exito!')
-                    obtener_usuarios();
-                    $('#confirmar').modal('hide');
-                    $("#form_confirmar").trigger('reset');
-                }
-
-            }else if(respuesta.mensaje == 'error_decrypt'){
-                Swal.fire({
-                    position: 'center',
-                    icon: 'error',
-                    title: 'No volnere los datos',
-                    showConfirmButton: false,
-                    timer: 1000,
-                }).then(function(){
-                    location.reload();
-                })
-            }else if(respuesta.mensaje == 'error_pass'){
-                toastr.error('No se pudo '+respuesta.funcion+' Porque su contraseña actual no coincide con nuestros registros, intente de nuevo','Error!')
-            }else if(respuesta.mensaje == 'error_sesion'){
-                Swal.fire({
-                    position: 'center',
-                    icon: 'error',
-                    title: 'Sesión finalizada',
-                    showConfirmButton: false,
-                    timer: 1000,
-                }).then(function(){
-                    location.href= '../index';
-                })
-            }
-          } catch (error) {
-            console.error(error);
-            console.log(response);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
-            })
-          }
-    
-        }else{
-          Swal.fire({
-            icon: 'error',
-            title: data.statusText,
-            text: 'Hubo conflicto de codigo:'+data.status
-          })
-        }
-    
-    }
-    $.validator.setDefaults({
-        submitHandler: function () {
-            let datos = new FormData($('#form_confirmar')[0]);
-            confirmar(datos);
-        }
-    });
-    $('#form_confirmar').validate({
-        rules: {
-            pass: {
-                required: true,
-            }
-            
-        },
-        messages: {
-            pass: {
-                required: "*Dato requerido",
-            },
-            
-        },
-        errorElement: 'span',
-        errorPlacement: function (error, element) {
-          error.addClass('invalid-feedback');
-          element.closest('.form-group').append(error);
-        },
-        highlight: function (element, errorClass, validClass) {
-          $(element).addClass('is-invalid');
-          $(element).removeClass('is-valid');
-        },
-        unhighlight: function (element, errorClass, validClass) {
-          $(element).removeClass('is-invalid');
-          $(element).addClass('is-valid');
-        }
-    });
-
     $(document).on('click','.editar_cliente',(e)=>{
         let elemento = $(this)[0].activeElement;
         let id = $(elemento).attr('id');
@@ -821,7 +714,7 @@ $(document).ready(function(){
         let direccion = $(elemento).attr('direccion');
         let telefono = $(elemento).attr('telefono');
         $('#idcliente_mod').val(id);
-        //$('#docum_mod').val(docum);
+        $('#docum_mod').val(docum).trigger('change');
         $('#num_mod').val(dni).trigger('change');
         $('#nombre_mod').val(nombre);
         $('#apellido_mod').val(apellido);
@@ -830,48 +723,46 @@ $(document).ready(function(){
     });
     async function editar_clientes(datos){
         let data = await fetch('../controllers/ClienteController.php',{
-          method: "POST",
-          body: datos
+            method: "POST",
+            body: datos
     
         })
         if(data.ok){
-          let response = await data.text();
-          try {
-            let respuesta = JSON.parse(response);
-            console.log(respuesta);
-            if(respuesta.mensaje == 'success'){
-                toastr.success('Se Edito el cliente','Exito!')
-                obtener_clientes();
-                $('#editar_cliente').modal('hide');
-                $("#form-editar").trigger('reset');
-                $('#docum_mod').val('').trigger('change');
-            }else if(respuesta.mensaje == 'error_sesion'){
+            let response = await data.text();
+            try {
+                let respuesta = JSON.parse(response);
+                if(respuesta.mensaje == 'success'){
+                    toastr.success('Se Edito el cliente','Exito!')
+                    obtener_clientes();
+                    $('#editar_cliente').modal('hide');
+                    $("#form-editar").trigger('reset');
+                    $('#docum_mod').val('').trigger('change');
+                }else if(respuesta.mensaje == 'error_sesion'){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Sesión finalizada',
+                        showConfirmButton: false,
+                        timer: 1000,
+                    }).then(function(){
+                        location.href= '../index';
+                    })
+                }
+            } catch (error) {
+                console.error(error);
+                console.log(response);
                 Swal.fire({
-                    position: 'center',
-                    icon: 'error',
-                    title: 'Sesión finalizada',
-                    showConfirmButton: false,
-                    timer: 1000,
-                }).then(function(){
-                    location.href= '../index';
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
                 })
             }
-          } catch (error) {
-            console.error(error);
-            console.log(response);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
-            })
-          }
-    
         }else{
-          Swal.fire({
-            icon: 'error',
-            title: data.statusText,
-            text: 'Hubo conflicto de codigo:'+data.status
-          })
+            Swal.fire({
+                icon: 'error',
+                title: data.statusText,
+                text: 'Hubo conflicto de codigo:'+data.status
+            })
         }
     
     }
@@ -895,6 +786,9 @@ $(document).ready(function(){
             },
             num_mod: {
                 required: true,
+                number: true,
+                minlength: 8,
+                maxlength: 8
             },
             nombre_mod: {
                 required: true,
@@ -923,6 +817,9 @@ $(document).ready(function(){
             },
             num_mod: {
                 required: "*Porfavor, Ingrese su numero",
+                number: "*El dato debe ser numéricos",
+                minlength: "*Se permite minimo 8 caracteres",
+                maxlength: "*Se permite maximo 8 caracteres"
             },
             nombre_mod: {
                 required: "*Porfavor, Ingrese su nombre",
@@ -972,15 +869,13 @@ $(document).ready(function(){
     //La funcion asincrona envia mensaje al controlador.
     async function enviar_mensajes(datos){
         let data = await fetch('../controllers/ClienteController.php',{
-          method: "POST",
-          body: datos
-    
+            method: "POST",
+            body: datos
         })
         if(data.ok){
           let response = await data.text();
           try {
             let respuesta = JSON.parse(response);
-            console.log(respuesta);
             if(respuesta.mensaje == 'success'){
                 Swal.fire({
                     position: "center",
@@ -1083,21 +978,18 @@ $(document).ready(function(){
     
         })
         if(data.ok){
-          let response = await data.text();
-          try {
-            respuesta = JSON.parse(response);
-            console.log(respuesta);
-            
-          } catch (error) {
-            console.error(error);
-            console.log(response);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
-            })
-          }
-    
+            let response = await data.text();
+            try {
+                respuesta = JSON.parse(response);
+            } catch (error) {
+                console.error(error);
+                console.log(response);
+                Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+                })
+            }
         }else{
           Swal.fire({
             icon: 'error',
@@ -1172,21 +1064,18 @@ $(document).ready(function(){
     
         })
         if(data.ok){
-          let response = await data.text();
-          try {
-            respuesta = JSON.parse(response);
-            console.log(respuesta);
-            
-          } catch (error) {
-            console.error(error);
-            console.log(response);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
-            })
-          }
-    
+            let response = await data.text();
+            try {
+                respuesta = JSON.parse(response);
+            } catch (error) {
+                console.error(error);
+                console.log(response);
+                Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+                })
+            }
         }else{
           Swal.fire({
             icon: 'error',
@@ -1281,33 +1170,42 @@ $(document).ready(function(){
     
         })
         if(data.ok){
-          let response = await data.text();
-          try {
-            let calculos = JSON.parse(response);
-            console.log(calculos);
-            calculos.forEach(calculo => {
-                console.log(calculo);
-                $("#total").html(calculo.importeTotal);
-                $("#abono_total").html(calculo.abonoTotal);
-                $("#saldo_total").html(calculo.saldoTotal);
-                $("#vuelto_total").html(calculo.vueltoTotal);
-            });
-          } catch (error) {
-            console.error(error);
-            console.log(response);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
-            })
-          }
-    
+            let response = await data.text();
+            try {
+                let calculos = JSON.parse(response);
+                calculos.forEach(calculo => {
+                    if(calculo.importeTotal != null){
+                        $("#total").html(calculo.importeTotal);
+                        $("#abono_total").html(calculo.abonoTotal);
+                        $("#saldo_total").html(calculo.saldoTotal);
+                        $("#vuelto_total").html(calculo.vueltoTotal);
+                    }else{
+                        let importeTotal, abonoTotal, saldoTotal, vueldoTotal;
+                        importeTotal = 0;
+                        abonoTotal = 0;
+                        saldoTotal = 0;
+                        vueldoTotal = 0;
+                        $("#total").html(importeTotal);
+                        $("#abono_total").html(abonoTotal);
+                        $("#saldo_total").html(saldoTotal);
+                        $("#vuelto_total").html(vueldoTotal);
+                    }
+                });
+            } catch (error) {
+                console.error(error);
+                console.log(response);
+                Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+                })
+            }
         }else{
-          Swal.fire({
-            icon: 'error',
-            title: data.statusText,
-            text: 'Hubo conflicto de codigo:'+data.status
-          })
+            Swal.fire({
+                icon: 'error',
+                title: data.statusText,
+                text: 'Hubo conflicto de codigo:'+data.status
+            })
         }
     
     }
@@ -1321,76 +1219,73 @@ $(document).ready(function(){
     
         })
         if(data.ok){
-          let response = await data.text();
-          try {
-            let historiales = JSON.parse(response);
-            console.log(historiales);
-            let template = "";
-            historiales.forEach(historial => {
-                template+=`
-                <tr>
-                    <td>${historial.id}</td>
-                    <td>${historial.cliente}</td>
-                    <td>${historial.descripcion}</td>
-                    <td>${historial.consumo}</td>
-                    <td>${historial.fecha_pago}</td>
-                    <td>${historial.deuda}</td>
-                    <td>${historial.abono}</td>
-                    <td>${historial.saldo}</td>
-                    <td>${historial.vuelto}</td>
-                    <td>${historial.medios}</td>
-                    <td>${historial.usuario}</td>
-                    <td>${historial.estado}</td>
-                    <td>${historial.opcion}</td>
-                </tr>
-                `;
-            });
-            $("#historial").html(template);
-          } catch (error) {
-            console.error(error);
-            console.log(response);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
-            })
-          }
-    
+            let response = await data.text();
+            try {
+                let historiales = JSON.parse(response);
+                let template = "";
+                historiales.forEach(historial => {
+                    template+=`
+                    <tr>
+                        <td>${historial.id}</td>
+                        <td>${historial.cliente}</td>
+                        <td>${historial.descripcion}</td>
+                        <td>${historial.consumo}</td>
+                        <td>${historial.fecha_pago}</td>
+                        <td>${historial.deuda}</td>
+                        <td>${historial.abono}</td>
+                        <td>${historial.saldo}</td>
+                        <td>${historial.vuelto}</td>
+                        <td>${historial.medios}</td>
+                        <td>${historial.usuario}</td>
+                        <td>${historial.estado}</td>
+                        <td>${historial.opcion}</td>
+                    </tr>
+                    `;
+                });
+                $("#historial").html(template);
+            } catch (error) {
+                console.error(error);
+                console.log(response);
+                Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+                })
+            }
         }else{
-          Swal.fire({
-            icon: 'error',
-            title: data.statusText,
-            text: 'Hubo conflicto de codigo:'+data.status
-          })
+            Swal.fire({
+                icon: 'error',
+                title: data.statusText,
+                text: 'Hubo conflicto de codigo:'+data.status
+            })
         }
     
     }
 
     function Loader(mensaje) {
         if(mensaje=='' || mensaje==null){
-          mensaje = "cargando datos...";
-          Swal.fire({
-            position: 'center',
-            html: '<i class="fas fa-2x fa-sync-alt fa-spin"></i>',
-            title: mensaje,
-            showConfirmButton: false
-          })
+            mensaje = "cargando datos...";
+            Swal.fire({
+                position: 'center',
+                html: '<i class="fas fa-2x fa-sync-alt fa-spin"></i>',
+                title: mensaje,
+                showConfirmButton: false
+            })
         }
     }
     
     function CloseLoader(mensaje,tipo) {
         if(mensaje=='' || mensaje==null){
-          Swal.close();
+            Swal.close();
         }else{
-          Swal.fire({
-            position: 'center',
-           icon: tipo,
-            title: mensaje,
-            showConfirmButton: false
-          })
+            Swal.fire({
+                position: 'center',
+            icon: tipo,
+                title: mensaje,
+                showConfirmButton: false
+            })
         }
     }
-  
 });
 
 let espanol = {

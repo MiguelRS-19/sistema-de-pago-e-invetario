@@ -6,7 +6,7 @@
 @media screen and (max-width: 900px) {
   .carro{
     display: block;
-    width: 260px !important;
+    width: auto !important;
     height: auto;
   }
   .carro thead{
@@ -40,22 +40,22 @@
 
 
   .carro tbody tr td:nth-child(1)::before{
-    content: "Codigo";
-    font-weight: bold;
-    color: #000;
-  }
-  .carro tbody tr td:nth-child(2)::before{
     content: "Nombre";
     font-weight: bold;
     color: #000;
   }
+  .carro tbody tr td:nth-child(2)::before{
+    content: "Descripcion";
+    font-weight: bold;
+    color: #000;
+  }
   .carro tbody tr td:nth-child(3)::before{
-    content: "Concent";
+    content: "Present";
     font-weight: bold;
     color: #000;
   }
   .carro tbody tr td:nth-child(4)::before{
-    content: "Adicional";
+    content: "Marca";
     font-weight: bold;
     color: #000;
   }

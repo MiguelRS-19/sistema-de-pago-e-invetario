@@ -4,7 +4,7 @@ include_once 'layout/header.php';
 ?>
 
 <!-- Modal cambiar contraseña-->
-<div class="modal fade" id="confirmar" tabindex="-1" aria-hidden="true">
+<div class="modal fade animate__animated animate__zoomInDown" id="confirmar" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
@@ -51,7 +51,7 @@ include_once 'layout/header.php';
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="crear_usuario" role="dialog">
+<div class="modal fade animate__animated animate__bounceInDown" id="crear_usuario" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -133,7 +133,7 @@ include_once 'layout/header.php';
 
 
 <!-- Modal -->
-<div class="modal fade" id="editar_usuario" tabindex="-1" role="dialog">
+<div class="modal fade animate__animated animate__bounceInDown" id="editar_usuario" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -195,7 +195,7 @@ include_once 'layout/header.php';
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800 d-sm-flex align-items-center justify-content-between">Usuario
+        <h1 class="animate__animated animate__bounce h3 mb-4 text-gray-800 d-sm-flex align-items-center justify-content-between">Usuario
         </h1>
 
         <!-- DataTales Example -->
@@ -206,14 +206,16 @@ include_once 'layout/header.php';
                 </h6>
             </div>
             <div class="card-body">
-              <table id="usuarios" class="table table-hover">
-                <thead class="table-dark">
-                    <tr><th width="100%">usuarios</th></tr>
-                </thead>
-                <tbody>
+              <div class="table-responsive">
+                <table id="usuarios" class="table table-hover">
+                  <thead class="table-dark">
+                      <tr><th width="100%">usuarios</th></tr>
+                  </thead>
+                  <tbody>
 
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+              </div>
             </div>
         </div>
     </div>
@@ -232,7 +234,6 @@ include_once 'layout/header.php';
 $('#num').keyup(function(e){
     e.preventDefault();
     dni=$('#num').val();
-    console.log(dni);
     $.ajax({
       url: '../controllers/consultaDNI/consultaDni.php',
       type: 'POST',
@@ -252,7 +253,6 @@ $('#num').keyup(function(e){
   $('#num_mod').keyup(function(e){
     e.preventDefault();
     dni=$('#num_mod').val();
-    console.log(dni);
     $.ajax({
       url: '../controllers/consultaDNI/consultaDni.php',
       type: 'POST',
@@ -268,43 +268,5 @@ $('#num').keyup(function(e){
     e.preventDefault();
   });
 
-  /*$('#numero').keyup(function(e){
-    e.preventDefault();
-    ruc=$('#ruc').val();
-    console.log(ruc);
-    $.ajax({
-      url: '../controllers/consultaRUC/consultaRuc.php',
-      type: 'POST',
-      data: 'ruc='+ruc,
-      dataType: 'json',
-      success: function(consult){
-        if(consult.body.numeroRuc== ruc){
-          //$('#direccion').val(consult.body.desDireccion);
-          console.log(consult.body.desDireccion);
-        }
-      }
-    });
-    e.preventDefault();
-  });*/
-
- /* $('#dni_mod').keyup(function(e){
-    e.preventDefault();
-    dni=$('#dni_mod').val();
-    console.log(dni);
-    $.ajax({
-      url: '../controllers/consultaDNI/consultaDni.php',
-      type: 'POST',
-      data: 'dni='+dni,
-      dataType: 'json',
-      success: function(consult){
-        if(consult.body.nuDni== dni){
-          $('#nombre_mod').val(consult.body.preNombres);
-          $('#apellido_mod').val(consult.body.apePaterno+' '+consult.body.apeMaterno);
-          $('#direccion_mod').val(consult.body.desDireccion);
-        }
-      }
-    });
-    e.preventDefault();
-
-  });*/
+  
 </script>

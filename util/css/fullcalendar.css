@@ -1,0 +1,41 @@
+
+
+@media (max-width: 900px) {
+  .fc .fc-button {
+    font-size: 0.7em; /* Ajuste el tamaño de la fuente */
+    padding: 0.35em 0.55em; /* Ajuste el relleno */
+  }
+  .fc-toolbar-title{
+    font-size: 0.2em;
+  }
+
+  .fc .fc-toolbar {
+    align-items: center;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 600px) {
+  .fc .fc-button {
+    font-size: 0.7em; /* Ajuste el tamaño de la fuente */
+    padding: 0.35em 0.55em; /* Ajuste el relleno */
+  }
+  .fc-toolbar-title{
+    font-size: 0.2em;
+  }
+
+  .fc .fc-toolbar {
+    align-items: center;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 768px) {
+  .fc .fc-toolbar {
+    display: block;
+    text-align: center;
+  }
+  .fc .fc-toolbar-title {
+    margin: 10px 0;
+  }
+}

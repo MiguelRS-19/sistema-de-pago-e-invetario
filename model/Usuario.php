@@ -175,47 +175,9 @@ class Usuario{
   }
 
 
-  /************************************************** */
-
-
-  //UPDATE usuario set user = 'CESAR', pass = '123455' WHERE nombre = 'CESAR';
-  
-  /*function borrar($id){
-    $sql = "SELECT * FROM cuenta where idusuario=:id";
-    $query = $this->acceso->prepare($sql);
-    $query->execute(array(':id'=>$id));
-    $lote = $query->fetchAll();
-    if(!empty($lote)){
-      echo "noborrado";
-    }else{
-      $sql = "UPDATE usuario SET estado='I' where iduser=:id";
-      $query = $this->acceso->prepare($sql);
-      $query->execute(array(':id'=>$id));
-      if(!empty($query->execute(array(':id'=>$id)))){
-        echo "borrado";
-      }else{
-        echo "noborrado";
-      }
-    }
-    
-  }*/
-
-
-  /*function mensaje_usuario(){
-    $sql = "SELECT iduser,concat(u.nombre,' ',u.apellidos) as nombre,telefono,ct.cant_dinero as cancelar, date(ct.fecha_pago) as fecha FROM usuario u join cuota ct on ct.idusuario = u.iduser where u.estado='A';";
-    $query = $this->acceso->prepare($sql);
-    $query->execute();
-    $this->objetos = $query->fetchAll();
-    return $this->objetos;
-  }*/
-
-
-  
-
-
 
   function verificar($dni,$email){
-    $sql = "SELECT * FROM usuario where correo=:email and dni=:dni" ;
+    $sql = "SELECT * FROM usuario where email=:email and numero=:dni" ;
     $query = $this->acceso->prepare($sql);
     $query->execute(array(':dni'=>$dni,':email'=>$email));
     $this->objetos = $query->fetchAll();
@@ -231,7 +193,7 @@ class Usuario{
   }
 
   function remplazar($codigo,$dni,$email){
-    $sql = "UPDATE usuario SET pass=:codigo where correo=:email and dni=:dni" ;
+    $sql = "UPDATE usuario SET clave=:codigo where email=:email and numero=:dni" ;
     $query = $this->acceso->prepare($sql);
     $query->execute(array(':codigo'=>$codigo,':dni'=>$dni,':email'=>$email));
     

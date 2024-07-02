@@ -10,7 +10,7 @@ class Cliente{
 
   //Funcion de listar usuario a la vista del gestion usuario
   function obtener_clientes(){
-    $sql = "SELECT * FROM cliente c ORDER BY c.idcliente";
+    $sql = "SELECT * FROM cliente c ORDER BY c.idcliente DESC";
     $query = $this->acceso->prepare($sql);
     $query->execute();
     $this->objetos = $query->fetchAll();

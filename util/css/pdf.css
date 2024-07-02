@@ -86,7 +86,7 @@ h1 {
 }
 #negocio {
   font-size: 18px;
-  color: rgb(254, 240, 80);
+  color: rgb(0, 0, 0);
 }
 
 table {
@@ -150,11 +150,11 @@ table td {
 
 table td.total {
   font-size: 30px;
-  color : rgb(254, 240, 80);
+  color : rgb(2, 74, 209);
 }
 
 table td.grand {
-  border-top: 1px solid  rgb(254, 240, 80);
+  border-top: 1px solid  rgb(175, 175, 175);
   
 }
 

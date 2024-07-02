@@ -121,25 +121,21 @@ session_start();
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800">ANÁLISIS DE DATOS</h1>
+        <h1 class="h3 mb-4 text-gray-800 animate__animated animate__bounce">ANÁLISIS DE DATOS</h1>
         <div class="row">
           <div class="col-lg-4 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                 <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-muted text-uppercase mb-1">
-                        Ingreso Diaria</div>
-                        <div id="ingreso_diaria" class="h3 d-flex align-items-center"></div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-calendar-day fa-2x text-gray-300"></i>
-                    </div>
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-muted text-uppercase mb-1">
+                      Ingreso Diaria</div>
+                      <div id="ingreso_diaria" class="h3 d-flex align-items-center"></div>
                   </div>
-                  <!--<a class="text-arrow-icon small text-primary" href="#!">
-                    Ver mas
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                  </a>-->
+                  <div class="col-auto">
+                      <i class="fas fa-calendar-day fa-2x text-gray-300"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -178,11 +174,9 @@ session_start();
 
           <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
-                  <!-- Card Header - Dropdown -->
                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                       <h6 class="m-0 font-weight-bold text-primary">Medios de pago más utilizado</h6>
                   </div>
-                  <!-- Card Body -->
                   <div class="card-body">
                       <div class="chart-responsive pt-4 pb-2">
                           <canvas id="Grafico1" width="1052" height="490" style="display: block; height: 245px; width: 526px;" class="chartjs-render-monitor"></canvas>
@@ -203,30 +197,9 @@ session_start();
                 </div>
             </div>
           </div>
-
-          <!--<div class="col-xl-12 col-lg-10">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Comprativa de mes diaria, mensual y anual</h6>
-                </div>
-                <div class="card-body">
-                    <div class="chart-responsive">
-                        <canvas id="Grafico3" style="min-height: 250px; height: 250px; max-height: 250px; max-width:100%;"></canvas>
-                    </div>
-                </div>
-            </div>
-          </div>-->
-
         </div>
-
-
-
     </div>
-    <!-- /.container-fluid -->
-
-
 </div>
-<!-- End of Main Content -->
 <?php
 include_once 'layout/footer.php';
 ?>

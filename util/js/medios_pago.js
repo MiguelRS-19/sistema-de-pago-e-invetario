@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  Loader();
+    Loader();
     //setTimeout(verificar_sesion,2000);
     bsCustomFileInput.init();
     verificar_sesion();
@@ -10,32 +10,7 @@ $(document).ready(function(){
     //Funcion de llenar menu superior.
     function llenar_menu_superior(usuario) {
         let template = `
-            <button type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" aria-label="presionar">
-                <i class="fa fa-bars"></i>
-            </button>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown no-arrow d-sm-none">
-                    <a class="nav-link dropdown-toggle" id="searchDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-search fa-fw"></i>
-                    </a>
-                    <!-- Dropdown - Messages -->
-                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                        aria-labelledby="searchDropdown">
-                        <form class="form-inline mr-auto w-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small"
-                                    placeholder="Search for..." aria-label="Search"
-                                    aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" aria-label="buscar">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
 
                 <li id="cart-carrito" class="nav-item dropdown no-arrow mx-1" role="button">
                     <a class="nav-link dropdown-toggle"  id="messagesDropdown">
@@ -113,8 +88,8 @@ $(document).ready(function(){
                     <a class="nav-link dropdown-toggle" " id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span id="sesion_name" class="mr-2 d-none d-lg-inline text-gray-600 small">${usuario.nombre+' '+usuario.apellido}</span>
-                        <img id="sesion_avatar" class="img-profile rounded-circle"
-                            src="${usuario.avatar}" alt="Imagen usuario" >
+                        <img id="sesion_avatar" class="img-profile rounded-circle animate__animated animate__zoomIn"
+                            src="../util/img/user/${usuario.avatar}" alt="Imagen usuario" >
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -149,7 +124,7 @@ $(document).ready(function(){
         <li class="nav-item active">
             <a class="nav-link" href="control">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Panel control</span></a>
         </li>
 
         <!-- Divider -->
@@ -195,7 +170,7 @@ $(document).ready(function(){
 
         <!-- Heading -->
         <div class="sidebar-heading">
-          Cuentas
+            Cuentas
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
@@ -209,34 +184,78 @@ $(document).ready(function(){
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pagos:</h6>
-                    <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card"></i> Gestion Tipo pago</a>
-                    <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins"></i> Gestion Cuenta</a>
+                    <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card mr-2"></i>Gestion Tipo pago</a>
+                    <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins mr-2"></i>Gestion Cuenta</a>
+                    <a class="collapse-item" href="citas"><i class="fas fa-calendar-alt mr-2"></i>Gestion Citas</a>
                 </div>
             </div>
         </li>
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-      Almacén
-      </div>
-    
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsealmacen" aria-expanded="true"
-              aria-controls="collapsealmacen">
-              <i class="fas fa-fw fa-folder"></i>
-              <span>Almacén</span>
-          </a>
-          <div id="collapsealmacen" class="collapse" aria-labelledby="headingalmacen"
-              data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">Almacén:</h6>
-                  <a class="collapse-item" href="categoria"><i class="fas fa-fw fa-credit-card"></i> Gestion Categoria</a>
-                  <a class="collapse-item" href="marca"><i class="fas fa-fw fa-credit-card"></i> Gestion Marca</a>
-                  <a class="collapse-item" href="productos"><i class="fas fa-fw fa-coins"></i> Gestion Producto</a>
-              </div>
-          </div>
-      </li>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+        Almacén
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsealmacen" aria-expanded="true"
+                aria-controls="collapsealmacen">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Almacén</span>
+            </a>
+            <div id="collapsealmacen" class="collapse" aria-labelledby="headingalmacen"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Almacén:</h6>
+                    <a class="collapse-item" href="categoria"><i class="fas fa-th-list mr-2"></i>Gestion Categoria</a>
+                    <a class="collapse-item" href="marca"><i class="fas fa-lg fa-tags mr-2"></i>Gestion Marca</a>
+                    <a class="collapse-item" href="productos"><i class="fas fa-lg fa-cube mr-2"></i>Gestion Producto</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+        Compras
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsecompra" aria-expanded="true"
+                aria-controls="collapsecompra">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Compras</span>
+            </a>
+            <div id="collapsecompra" class="collapse" aria-labelledby="headingcompra"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Compra:</h6>
+                    <a class="collapse-item" href="proveedor"><i class="fas fa-truck mr-2"></i>Gestion Proveedor</a>
+                    <a class="collapse-item" href="compras"><i class="fas fa-people-carry mr-2"></i>Gestion Compras</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+        Ventas
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseventa" aria-expanded="true"
+                aria-controls="collapseventa">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Ventas</span>
+            </a>
+            <div id="collapseventa" class="collapse" aria-labelledby="headingventa"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Venta:</h6>
+                    <a class="collapse-item" href="listVenta"><i class="fas fa-clipboard-list mr-2"></i></i>Listar ventas</a>
+                </div>
+            </div>
+        </li>
 
         <!-- Heading -->
         <div class="sidebar-heading">
@@ -750,194 +769,192 @@ $(document).ready(function(){
     });
 
     async function eliminar(id){
-      let funcion = 'eliminar';
-      let respuesta = '';
-      let data = await fetch('../controllers/MediosPagoController.php',{
-      method: "POST",
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: 'funcion='+funcion+'&&id='+id
-  
-      })
-      if(data.ok){
-        let response = await data.text();
-        try {
-          respuesta = JSON.parse(response);
-          console.log(respuesta);
-          
-        } catch (error) {
-          console.error(error);
-          console.log(response);
+        let funcion = 'eliminar';
+        let respuesta = '';
+        let data = await fetch('../controllers/MediosPagoController.php',{
+        method: "POST",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'funcion='+funcion+'&&id='+id
+    
+        })
+        if(data.ok){
+          let response = await data.text();
+          try {
+            respuesta = JSON.parse(response);
+          } catch (error) {
+            console.error(error);
+            console.log(response);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+            })
+          }
+    
+        }else{
           Swal.fire({
             icon: 'error',
-            title: 'Error',
-            text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+            title: data.statusText,
+            text: 'Hubo conflicto de codigo:'+data.status
           })
         }
-  
-      }else{
-        Swal.fire({
-          icon: 'error',
-          title: data.statusText,
-          text: 'Hubo conflicto de codigo:'+data.status
-        })
-      }
-      return respuesta;
-  }
-  $(document).on('click','.eliminar',(e)=>{
-      let elemento = $(this)[0].activeElement;
-      let id = $(elemento).attr('id');
-      let nombre = $(elemento).attr('nombre');
-      let avatar = $(elemento).attr('avatar');
+        return respuesta;
+    }
+    $(document).on('click','.eliminar',(e)=>{
+        let elemento = $(this)[0].activeElement;
+        let id = $(elemento).attr('id');
+        let nombre = $(elemento).attr('nombre');
+        let avatar = $(elemento).attr('avatar');
 
-      const swalWithBootstrapButtons = Swal.mixin({
-          customClass: {
-              confirmButton: "btn btn-success ml-2",
-              cancelButton: "btn btn-danger"
-          },
-          buttonsStyling: false
-      });
-      swalWithBootstrapButtons.fire({
-          title: 'Deseas eliminar medios de pago '+nombre+'?',
-          imageUrl: '../util/img/'+avatar,
-          imageWidth: 200,
-          imageHeight: 200,
-          showCancelButton: true,
-          confirmButtonText: "Si, Borrar!",
-          cancelButtonText: "No, cancelar!",
-          reverseButtons: true
-        }).then((result) => {
-          if (result.isConfirmed) {
-              eliminar(id).then(respuesta=>{
-                  if(respuesta.mensaje == 'success'){
-                      swalWithBootstrapButtons.fire({
-                          title: "Eliminado!",
-                          text: "El medios de pago fue eliminado "+nombre+".",
-                          icon: "success"
-                      });
-                      obtener_MediosPagos();
-                  }else if(respuesta.mensaje == 'error_decrypt'){
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'error',
-                        title: 'No volnere los datos',
-                        showConfirmButton: false,
-                        timer: 1000,
-                    }).then(function(){
-                        location.reload();
-                    })
-                }else if(respuesta.mensaje == 'error_sesion'){
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success ml-2",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: 'Deseas eliminar medios de pago '+nombre+'?',
+            imageUrl: '../util/img/'+avatar,
+            imageWidth: 200,
+            imageHeight: 200,
+            showCancelButton: true,
+            confirmButtonText: "Si, Borrar!",
+            cancelButtonText: "No, cancelar!",
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+                eliminar(id).then(respuesta=>{
+                    if(respuesta.mensaje == 'success'){
+                        swalWithBootstrapButtons.fire({
+                            title: "Eliminado!",
+                            text: "El medios de pago fue eliminado "+nombre+".",
+                            icon: "success"
+                        });
+                        obtener_MediosPagos();
+                    }else if(respuesta.mensaje == 'error_decrypt'){
                       Swal.fire({
                           position: 'center',
                           icon: 'error',
-                          title: 'Sesión finalizada',
+                          title: 'No volnere los datos',
                           showConfirmButton: false,
                           timer: 1000,
                       }).then(function(){
-                          location.href= '../index';
+                          location.reload();
                       })
-                  }
-              })
-          } else if (
-            /* Read more about handling dismissals below */
-              result.dismiss === Swal.DismissReason.cancel
-          ) {
-              swalWithBootstrapButtons.fire({
-                  title: "Cancelado!",
-                  text: "Cancelo la eliminación de medios de pago",
-                  icon: "error"
-              });
-          }
-      });
-  })
-
-  async function activar(id){
-      let funcion = 'activar';
-      let respuesta = '';
-      let data = await fetch('../controllers/MediosPagoController.php',{
-      method: "POST",
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: 'funcion='+funcion+'&&id='+id
-
-      })
-      if(data.ok){
-        let response = await data.text();
-        try {
-          respuesta = JSON.parse(response);
-        } catch (error) {
-          console.error(error);
-          console.log(response);
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
-          })
-        }
-
-      }else{
-        Swal.fire({
-          icon: 'error',
-          title: data.statusText,
-          text: 'Hubo conflicto de codigo:'+data.status
-        })
-      }
-      return respuesta;
-  }
-  $(document).on('click','.activar',(e)=>{
-      let elemento = $(this)[0].activeElement;
-      let id = $(elemento).attr('id');
-      let nombre = $(elemento).attr('nombre');
-      let avatar = $(elemento).attr('avatar');
-
-      const swalWithBootstrapButtons = Swal.mixin({
-          customClass: {
-              confirmButton: "btn btn-success ml-2",
-              cancelButton: "btn btn-danger"
-          },
-          buttonsStyling: false
-      });
-      swalWithBootstrapButtons.fire({
-          title: 'Desea volver activar a '+nombre+'?',
-          imageUrl: '../util/img/'+avatar,
-          imageWidth: 200,
-          imageHeight: 200,
-          showCancelButton: true,
-          confirmButtonText: "Si, Activar!",
-          cancelButtonText: "No, cancelar!",
-          reverseButtons: true
-        }).then((result) => {
-          if (result.isConfirmed) {
-              activar(id).then(respuesta=>{
-                  if(respuesta.mensaje == 'success'){
-                      swalWithBootstrapButtons.fire({
-                          title: "Activado!",
-                          text: "El Medios de pago fue activado "+nombre+".",
-                          icon: "success"
-                      });
-                      obtener_MediosPagos();
                   }else if(respuesta.mensaje == 'error_sesion'){
-                      Swal.fire({
-                          position: 'center',
-                          icon: 'error',
-                          title: 'Sesión finalizada',
-                          showConfirmButton: false,
-                          timer: 1000,
-                      }).then(function(){
-                          location.href= '../index';
-                      })
-                  }
-              })
-          } else if (
-            /* Read more about handling dismissals below */
-              result.dismiss === Swal.DismissReason.cancel
-          ) {
-              swalWithBootstrapButtons.fire({
-                  title: "Cancelado!",
-                  text: "Cancelo la activación de medios de pago.",
-                  icon: "error"
-              });
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'Sesión finalizada',
+                            showConfirmButton: false,
+                            timer: 1000,
+                        }).then(function(){
+                            location.href= '../index';
+                        })
+                    }
+                })
+            } else if (
+              /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelado!",
+                    text: "Cancelo la eliminación de medios de pago",
+                    icon: "error"
+                });
+            }
+        });
+    })
+
+    async function activar(id){
+        let funcion = 'activar';
+        let respuesta = '';
+        let data = await fetch('../controllers/MediosPagoController.php',{
+        method: "POST",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'funcion='+funcion+'&&id='+id
+
+        })
+        if(data.ok){
+          let response = await data.text();
+          try {
+            respuesta = JSON.parse(response);
+          } catch (error) {
+            console.error(error);
+            console.log(response);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+            })
           }
-      });
-  })
+
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: data.statusText,
+            text: 'Hubo conflicto de codigo:'+data.status
+          })
+        }
+        return respuesta;
+    }
+    $(document).on('click','.activar',(e)=>{
+        let elemento = $(this)[0].activeElement;
+        let id = $(elemento).attr('id');
+        let nombre = $(elemento).attr('nombre');
+        let avatar = $(elemento).attr('avatar');
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success ml-2",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: 'Desea volver activar a '+nombre+'?',
+            imageUrl: '../util/img/'+avatar,
+            imageWidth: 200,
+            imageHeight: 200,
+            showCancelButton: true,
+            confirmButtonText: "Si, Activar!",
+            cancelButtonText: "No, cancelar!",
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+                activar(id).then(respuesta=>{
+                    if(respuesta.mensaje == 'success'){
+                        swalWithBootstrapButtons.fire({
+                            title: "Activado!",
+                            text: "El Medios de pago fue activado "+nombre+".",
+                            icon: "success"
+                        });
+                        obtener_MediosPagos();
+                    }else if(respuesta.mensaje == 'error_sesion'){
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'Sesión finalizada',
+                            showConfirmButton: false,
+                            timer: 1000,
+                        }).then(function(){
+                            location.href= '../index';
+                        })
+                    }
+                })
+            } else if (
+              /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelado!",
+                    text: "Cancelo la activación de medios de pago.",
+                    icon: "error"
+                });
+            }
+        });
+    })
 
     function Loader(mensaje) {
       if(mensaje=='' || mensaje==null){
@@ -963,195 +980,6 @@ $(document).ready(function(){
         })
       }
     }
-
-  /*buscar_pago();
-  $('#form_Metodo_pago').submit(e=>{
-    let nombre = $('#nombre').val();
-    funcion = 'agregar_pago';
-    $.post('../controllers/MetodoPagoController.php',{nombre,funcion},(response)=>{
-      console.log(response);
-      if(response == 'add'){
-        $('#add').hide('slow');
-        $('#add').show(1000);
-        $('#add').hide(2000);
-        $('#form_Metodo_pago').trigger('reset');
-        buscar_pago();
-      }else{
-        $('#noadd').hide('slow');
-        $('#noadd').show(1000);
-        $('#noadd').hide(2000);
-        $('#form_Metodo_pago').trigger('reset');
-      }
-    });
-
-    e.preventDefault();
-  });
-
-  function buscar_pago(consulta){
-    funcion = 'buscar';
-    $.post('../controllers/MetodoPagoController.php',{consulta,funcion},(response)=>{
-      const pagos = JSON.parse(response);
-      let template = '';
-      pagos.forEach(pago => {
-        template+=`
-        <div pagoId="${pago.id}" pagoNombre="${pago.nombre}" pagoAvatar="${pago.avatar}" class="d-flex align-items-center justify-content-between px-4">
-          <div class="d-flex align-items-center">
-            <div class="small text-primary"><img src="${pago.avatar}" width="30px" height="30px" alt=""></div>
-            <div class="ms-4 ml-4">
-                <div id="tipo_pago" class="small text-dark">${pago.nombre}</div>
-            </div>
-          </div>
-          <div class="ms-4 small">
-              <button class="avatar btn btn-circle btn-sm btn-info ml-2" data-toggle="modal" data-target="#cambiarlogo"><i class="fas fa-image"></i></button>
-              <button class="editar btn btn-circle btn-sm btn-success ml-2" data-toggle="modal" data-target="#modal_edit_pago"><i class="fas fa-pen-alt"></i></button>
-              <button class="borrar btn btn-circle btn-sm btn-danger ml-2 mr-2"><i class="fas fa-trash"></i></button>
-          </div>
-        </div>
-        <hr>
-        `;
-      });
-      $('#pagos').html(template);
-    })
-
-  }
-  $(document).on('keyup','#buscar_pago', function(){
-    let valor = $(this).val();
-    if(valor != ""){
-      buscar_pago(valor);
-    }else{
-      buscar_pago();
-    }
-  })
-
-  $(document).on('click','.avatar',(e)=>{
-    funcion = 'cambiar_logo';
-    const elemento = $(this)[0].activeElement.parentElement.parentElement;
-    const id = $(elemento).attr('pagoId');
-    const nombre = $(elemento).attr('pagoNombre');
-    const avatar = $(elemento).attr('pagoAvatar');
-    $('#logoactual').attr('src',avatar);
-    $('#nombre_logo').html(nombre);
-    $('#funcion').val(funcion);
-    $('#id-logo_pago').val(id);
-    $('#avatar').val(avatar);
-  });
-
-  $(document).on('click','.editar',(e)=>{
-    const elemento = $(this)[0].activeElement.parentElement.parentElement;
-    const id = $(elemento).attr('pagoId');
-    const nombre = $(elemento).attr('pagoNombre');
-    $('#nombre_mod').val(nombre);
-    $('#idpago_mod').val(id);
-  });
-
-  $('#form-logo').submit(e=>{
-    let formData= new FormData($('#form-logo')[0]);
-    $.ajax({
-      url:'../controllers/MetodoPagoController.php',
-      type:'POST',
-      data:formData,
-      cache:false,
-      processData:false,
-      contentType:false
-
-    }).done(function(response){
-      const json = JSON.parse(response);
-      //console.log(json);
-      if(json.alert=='edit'){
-        $('#logoactual').attr('src',json.ruta);
-        $('#edit-pago').hide('slow');
-        $('#edit-pago').show(1000);
-        $('#edit-pago').hide(2000);
-        $('#form-logo').trigger('reset');
-        buscar_pago();
-      }else{
-        $('#noedit-pago').hide('slow');
-        $('#noedit-pago').show(1000);
-        $('#noedit-pago').hide(2000);
-        $('#form-logo').trigger('reset');
-      }
-      
-    });
-    e.preventDefault();
-  });
-
-  $('#form_pago').submit(e=>{
-    let id = $('#idpago_mod').val();
-    let nombre_mod = $('#nombre_mod').val();
-    funcion = 'editar';
-    $.post('../controllers/MetodoPagoController.php',{id,nombre_mod,funcion},(response)=>{
-      console.log(response);
-      if(response == 'edit'){
-        $('#edit').hide('slow');
-        $('#edit').show(1000);
-        $('#edit').hide(2000);
-        $('#form_pago').trigger('reset');
-        buscar_pago();
-      }else{
-        $('#noedit').hide('slow');
-        $('#noedit').show(1000);
-        $('#noedit').hide(2000);
-        $('#form_pago').trigger('reset');
-      }
-    });
-
-    e.preventDefault();
-  });
-
-  $(document).on('click','.borrar',(e)=>{
-    funcion = 'borrar';
-    const elemento = $(this)[0].activeElement.parentElement.parentElement;
-    const id = $(elemento).attr('pagoId');
-    const nombre = $(elemento).attr('pagoNombre');
-    const avatar = $(elemento).attr('pagoAvatar');
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger mr-1'
-      },
-      buttonsStyling: false
-    })
-    
-    swalWithBootstrapButtons.fire({
-      title: 'Desea eliminar '+nombre+'?',
-      text: "No podras revertir esto!",
-      imageUrl: ''+avatar+'',
-      imageWidth: 100,
-      imageHeight: 100,
-      imageAlt: 'logo pago',
-      showCancelButton: true,
-      confirmButtonText: 'Si, borra esto!',
-      cancelButtonText: 'No, cancelar!',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
-        $.post('../controllers/MetodoPagoController.php',{id,funcion},(response)=>{
-          if (response == 'borrado'){
-            swalWithBootstrapButtons.fire(
-              'Borrado!',
-              'El pago '+nombre+' fue borrado.',
-              'success'
-            )
-            buscar_pago();
-          }else{
-            swalWithBootstrapButtons.fire(
-              'No se pudo borrar!',
-              'El pago '+nombre+' no fue borrado porque esta siendo usado en un cuota.',
-              'error'
-            )
-            
-          }
-        });
-        
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        swalWithBootstrapButtons.fire(
-          'Cancelado',
-          'El pago '+nombre+' no fue borrado :)',
-          'error'
-        )
-      }
-    })
-  });*/
 
 });
 

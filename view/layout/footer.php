@@ -1,7 +1,7 @@
     <!-- Footer -->
     <footer class="sticky-footer bg-white">
         <div class="container my-auto">
-            <div class="copyright text-center my-auto">
+            <div class="animate__animated animate__shakeY copyright text-center my-auto">
                 <span>DIGITALTEI S.A.C &copy; PLAFORMA WEB 2024</span>
             </div>
         </div>
@@ -26,14 +26,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
                 </div>
                 <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="../controllers/Logout.php">Cerrar sesión</a>
+                    <button class="btn btn-outline-dark btn-circle" title="Salir" type="button" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                    <a class="btn btn-outline-info btn-circle" title="Cerrar sesion" href="../controllers/Logout.php"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -57,10 +54,14 @@
     <script src="../util/js/select2.full.min.js"></script>
     <script src="../util/js/moment.min.js"></script>
     <script src="../util/js/toastr.min.js"></script>
+    <script src="../util/js/index.global.min.js"></script>
+    <script src="../util/js/locales-all.min.js"></script>
+    <script src="../util/js/locales/es.js"></script>
     <!-- Page level plugins -->
     <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="../vendor/datatables/dataTables.responsive.min.js"></script>
+    <!--<script src="../vendor/datatables/dataTables.responsive.min.js"></script>-->
+    <script src="../util/js/responsive.dataTables.min.js"></script>
     <!--<script src="../util/js/demo/chart-area-demo.js"></script>-->
     <!--<script src="../util/js/demo/chart-pie-demo.js"></script>-->
     <!--<script src="../util/js/demo/chart-bar-demo.js"></script>-->

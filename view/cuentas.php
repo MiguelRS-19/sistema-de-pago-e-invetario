@@ -4,56 +4,7 @@ include_once 'layout/header.php';
 ?>
 
 <!-- Modal -->
-<div class="modal fade" id="asignar_cita" role="dialog">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-        <div class="modal-header bg-dark">
-          <h3 class="card-title text-white">Asignar citas
-          </h3>
-        </div>
-        <div class="modal-body">
-          <form id="form-asignar" enctype="multipart/form-data">
-            <div class="row g-3">
-              <div class="col-lg-4 md-3">
-                  <div class="form-group">
-                    <label class="mediun mb-1" for="clientes">Cliente</label>
-                    <select name="clientes" id="clientes" class="form-control select2-dark" data-dropdown-css-class="select2-primary" style="width: 100%;">
-                      
-                    </select>
-                  </div>
-                </div>
-              <div class="col-lg-4 md-3">
-                <div class="form-group">
-                  <label class="mediun mb-1" for="motivo">Motivo</label>
-                  <input id="motivo" name="motivo" type="text" class="form-control" placeholder="Ingrese motivo *">
-                </div>
-              </div>
-              <div class="col-lg-4 md-3">
-                <div class="form-group">
-                  <label class="mediun mb-1" for="plazo">Fecha plazo</label>
-                  <input id="plazo" name="plazo" type="date" class="form-control" placeholder="Ingrese Fecha plazo /Opcional">
-                </div>
-              </div>
-              <div class="col-lg-4 md-3">
-                <div class="form-group">
-                  <label class="mediun mb-1" for="deuda">Saldo</label>
-                  <input id="deuda" name="deuda" type="text" class="form-control" placeholder="Ingrese deuda *">
-                </div>
-              </div>
-            </div>
-            
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary btn-circle ml-2" title="Salir" data-dismiss="modal"><i class="fas fa-sign-out-alt"></i></button>
-          <button type="submit" class="btn btn-outline-success btn-circle ml-2" title="Asignar cita"><i class="fas fa-check"></i></button>
-          </form>
-        </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="crear_cuenta" role="dialog">
+<div class="modal fade animate__animated animate__bounceInDown" id="crear_cuenta" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -130,7 +81,7 @@ include_once 'layout/header.php';
 
 
 <!-- Modal -->
-<div class="modal fade" id="editar_cuenta" role="dialog">
+<div class="modal fade animate__animated animate__bounceInDown" id="editar_cuenta" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -187,8 +138,7 @@ include_once 'layout/header.php';
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800 d-sm-flex align-items-center justify-content-between">Cuenta
-        <button id="asignar" data-toggle="modal" data-target="#asignar_cita" type="button" class="btn btn-outline-warning btn-circle ml-2" title="Asignar citas"><i class="fas fa-clipboard-list"></i></button>
+        <h1 class="animate__animated animate__bounce h3 mb-4 text-gray-800 d-sm-flex align-items-center justify-content-between">Cuenta
         </h1>
 
         <div class="card shadow mb-4">

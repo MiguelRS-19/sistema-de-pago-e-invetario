@@ -46,6 +46,10 @@ label.success {
   font-size:12px;
   color: red
 }
+#ruc-error{
+  font-size:12px;
+  color: red
+}
 #nombre-error{
   font-size:12px;
   color: red
@@ -74,6 +78,10 @@ label.success {
   color: red
 }
 #num_mod-error{
+  font-size:12px;
+  color: red
+}
+#ruc_mod-error{
   font-size:12px;
   color: red
 }
@@ -228,6 +236,110 @@ label.success {
   color: red
 }
 #marca-error{
+  font-size:12px;
+  color: red
+}
+
+
+#descripcion_mod-error{
+  font-size:12px;
+  color: red
+}
+#presentacion_mod-error{
+  font-size:12px;
+  color: red
+}
+#precio_compra_mod-error{
+  font-size:12px;
+  color: red
+}
+#precio_venta_mod-error{
+  font-size:12px;
+  color: red
+}
+#stock_mod-error{
+  font-size:12px;
+  color: red
+}
+#stock_minimo_mod-error{
+  font-size:12px;
+  color: red
+}
+#categoria_mod-error{
+  font-size:12px;
+  color: red
+}
+#marca_mod-error{
+  font-size:12px;
+  color: red
+}
+
+/***compras ***/
+#producto-error{
+  font-size:12px;
+  color: red
+}
+#cantidad-error{
+  font-size:12px;
+  color: red
+}
+#tp_pago-error{
+  font-size:12px;
+  color: red
+}
+#tp_compra-error{
+  font-size:12px;
+  color: red
+}
+#codprovee-error{
+  font-size:12px;
+  color: red
+}
+
+
+/***citas ***/
+#clientes-error{
+  font-size:12px;
+  color: red
+}
+#color-error{
+  font-size:12px;
+  color: red
+}
+#inicio-error{
+  font-size:12px;
+  color: red
+}
+#final-error{
+  font-size:12px;
+  color: red
+}
+#saldo-error{
+  font-size:12px;
+  color: red
+}
+#motivo-error{
+  font-size:12px;
+  color: red
+}
+
+#color_mod-error{
+  font-size:12px;
+  color: red
+}
+#inicio_mod-error{
+  font-size:12px;
+  color: red
+}
+#final_mod-error{
+  font-size:12px;
+  color: red
+}
+#saldo_mod-error{
+  font-size:12px;
+  color: red
+}
+#motivo_mod-error{
   font-size:12px;
   color: red
 }

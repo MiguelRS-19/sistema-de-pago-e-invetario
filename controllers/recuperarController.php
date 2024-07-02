@@ -31,13 +31,13 @@ if($_POST['funcion'] == 'recuperar'){
       $mail->isSMTP();                                            //Send using SMTP
       $mail->Host       = 'smtp-mail.outlook.com';                     //Set the SMTP server to send through
       $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-      $mail->Username   = 'telecomunicacion@serviciotelecomunicacion.digitalteiperu.com';                     //SMTP username
-      $mail->Password   = 'Telec1234@';                               //SMTP password
+      $mail->Username   = 'Miguel_2004rey@outlook.es';                     //SMTP username
+      $mail->Password   = 'Rey580262M';                               //SMTP password
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
       $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
       //Recipients
-      $mail->setFrom('telecomunicacion@serviciotelecomunicacion.digitalteiperu.com', 'Sistema administrativo');
+      $mail->setFrom('Miguel_2004rey@outlook.es', 'Sistema administrativo');
       $mail->addAddress($email);     //Add a recipient
       //$mail->addAddress('ellen@example.com');               //Name is optional
       //$mail->addReplyTo('info@example.com', 'Information');
@@ -55,11 +55,8 @@ if($_POST['funcion'] == 'recuperar'){
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Narrative Invitation Email</title>
+        <title>Centro de recuperación de constraseñas</title>
         <style type="text/css">
-
-        /* Take care of image borders and formatting */
-
         img {
           max-width: 600px;
           outline: none;
@@ -151,16 +148,15 @@ if($_POST['funcion'] == 'recuperar'){
 
           <table cellspacing="0" cellpadding="0" width="100%">
             <tr>
-              <td style="background:#1f1f1f" width="100%">
+              <td style="background:#fdcd03" width="100%">
 
                 <center>
                   <table cellspacing="0" cellpadding="0" width="600" class="w320">
                     <tr>
-                      <td valign="top" width="270" style="background:#1f1f1f; text-align:left;">
+                      <td valign="top" width="270" style="background:#fdcd03; text-align:left;">
                         <a href="#" style="text-decoration:none;">
-                          <img src="../util/img/avatarlogo.png" width="50" height="50" alt="Your Logo"/>
+                          <img style="paddin:20px" src="/plataformaV2.0/util/img/logo.png" width="50" height="50" alt="Logo de empresa"/>
                         </a>
-                      
                       </td>
                       <td>
                         <h2 style="color: #f8f8f8; text-align:left;">
@@ -205,10 +201,10 @@ if($_POST['funcion'] == 'recuperar'){
                         <br>
                         <table cellspacing="0" cellpadding="0" width="100%" bgcolor="#ffffff">
                           <tr>
-                            <td style="width:130px;background:#D84A38;">
+                            <td style="width:130px;background:#D84A38;border-radius: 5px;">
                               <div>
-                              <a href="http://localhost:8081/DigitalteiRZ3/index.php"
-                              style="background-color:#D84A38;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:33px;text-align:center;text-decoration:none;width:130px;-webkit-text-size-adjust:none;">Ir al sistema!</a>
+                              <a href="http://localhost:8081/plataformaV2.0/index"
+                              style="background-color:#D84A38;border-radius: 0.5em;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:33px;text-align:center;text-decoration:none;width:130px;-webkit-text-size-adjust:none;">Ir al sistema!</a>
                                 
                               </div>
                             </td>
@@ -267,12 +263,12 @@ if($_POST['funcion'] == 'recuperar'){
             </tr>
           
             <tr>
-              <td style="background-color:#1f1f1f;">
+              <td style="background-color:#fdcd03;">
                 <center>
-                  <table border="0" cellpadding="0" cellspacing="0" width="600" class="w320" style="height:100%;color:#ffffff" bgcolor="#1f1f1f" >
+                  <table border="0" cellpadding="0" cellspacing="0" width="600" class="w320" style="height:100%;color:#ffffff" bgcolor="#fdcd03" >
                     <tr>
-                      <td align="right" valign="middle" class="mobile-padding" style="font-size:12px;padding:20px; background-color:#1f1f1f; color:#ffffff; text-align:left; ">
-                        <h4 style="color:#ffffff;"  href="#">Creado por Reyes | 2024</h4>
+                      <td align="right" valign="middle" class="mobile-padding" style="font-size:12px;padding:20px; background-color:#fdcd03; color:#ffffff; text-align:left; ">
+                        <h4 style="color:#ffffff;"  href="#">Creado por Miguel Reyes | 2024</h4>
                       
                       </td>
                     </tr>

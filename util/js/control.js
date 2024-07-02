@@ -1,35 +1,13 @@
 $(document).ready(function(){
   Loader();
   //setTimeout(verificar_sesion,2000);
-  //$('#productos').DataTable({})
   verificar_sesion();
   toastr.options={
     "preventDuplicates":true,
   }
   function llenar_menu_superior(usuario) {
     let template = `
-        <button type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" aria-label="presionar">
-            <i class="fa fa-bars"></i>
-        </button>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown no-arrow d-sm-none">
-                <!-- Dropdown - Messages -->
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                    aria-labelledby="searchDropdown">
-                    <form class="form-inline mr-auto w-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search"
-                                aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" aria-label="buscar">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </li>
 
             <li id="cart-carrito" class="nav-item dropdown no-arrow mx-1" role="button">
                 <a class="nav-link dropdown-toggle"  id="messagesDropdown">
@@ -105,8 +83,8 @@ $(document).ready(function(){
                 <a class="nav-link dropdown-toggle" " id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span id="sesion_name" class="mr-2 d-none d-lg-inline text-gray-600 small">${usuario.nombre+' '+usuario.apellido}</span>
-                    <img id="sesion_avatar" class="img-profile rounded-circle"
-                        src="${usuario.avatar}" alt="Imagen usuario" >
+                    <img id="sesion_avatar" class="img-profile rounded-circle animate__animated animate__zoomIn"
+                        src="../util/img/user/${usuario.avatar}" alt="Imagen usuario" >
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -136,11 +114,11 @@ $(document).ready(function(){
   }
   function llenar_menu_lateral(usuario) {
     let template = `
-    <!-- Nav Item - Dashboard -->
+    <!-- Nav Item - Panel -->
     <li class="nav-item active">
         <a class="nav-link" href="control">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Panel control</span></a>
     </li>
 
     <!-- Divider -->
@@ -200,8 +178,9 @@ $(document).ready(function(){
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pagos:</h6>
-                <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card"></i> Gestion Tipo pago</a>
-                <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins"></i> Gestion Cuenta</a>
+                <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card mr-2"></i>Gestion Tipo pago</a>
+                <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins mr-2"></i>Gestion Cuenta</a>
+                <a class="collapse-item" href="citas"><i class="fas fa-calendar-alt mr-2"></i>Gestion Citas</a>
             </div>
         </div>
     </li>
@@ -222,9 +201,52 @@ $(document).ready(function(){
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Almacén:</h6>
-                <a class="collapse-item" href="categoria"><i class="fas fa-fw fa-credit-card"></i> Gestion Categoria</a>
-                <a class="collapse-item" href="marca"><i class="fas fa-fw fa-credit-card"></i> Gestion Marca</a>
-                <a class="collapse-item" href="productos"><i class="fas fa-fw fa-coins"></i> Gestion Producto</a>
+                <a class="collapse-item" href="categoria"><i class="fas fa-th-list mr-2"></i>Gestion Categoria</a>
+                <a class="collapse-item" href="marca"><i class="fas fa-lg fa-tags mr-2"></i>Gestion Marca</a>
+                <a class="collapse-item" href="productos"><i class="fas fa-lg fa-cube mr-2"></i>Gestion Producto</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+    Compras
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsecompra" aria-expanded="true"
+            aria-controls="collapsecompra">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Compras</span>
+        </a>
+        <div id="collapsecompra" class="collapse" aria-labelledby="headingcompra"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Compra:</h6>
+                <a class="collapse-item" href="proveedor"><i class="fas fa-truck mr-2"></i>Gestion Proveedor</a>
+                <a class="collapse-item" href="compras"><i class="fas fa-people-carry mr-2"></i>Gestion Compras</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+    Ventas
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseventa" aria-expanded="true"
+            aria-controls="collapseventa">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Ventas</span>
+        </a>
+        <div id="collapseventa" class="collapse" aria-labelledby="headingventa"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Venta:</h6>
+                <a class="collapse-item" href="listVenta"><i class="fas fa-clipboard-list mr-2"></i></i>Listar ventas</a>
             </div>
         </div>
     </li>
@@ -300,7 +322,7 @@ $(document).ready(function(){
       let response = await data.text();
       try {
         let respuesta = JSON.parse(response);
-        if(respuesta.length != 0){
+        if(respuesta.length != 0 && respuesta.idtipo !=2 && respuesta.idtipo !=3 ){
           llenar_menu_superior(respuesta);
           llenar_menu_lateral(respuesta);
           mostrar_consultas();
@@ -492,7 +514,6 @@ $(document).ready(function(){
       headers:{'Content-type':'application/x-www-form-urlencoded'},
       body: 'funcion='+funcion,
     }).then(function(response){
-      console.log(response);
       return response.json();
     }).then(function(meses){
       meses.forEach(mes => {

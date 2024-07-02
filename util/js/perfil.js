@@ -8,32 +8,7 @@ $(document).ready(function(){
   }
   function llenar_menu_superior(usuario) {
     let template = `
-        <button type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" aria-label="presionar">
-            <i class="fa fa-bars"></i>
-        </button>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown no-arrow d-sm-none">
-                <a class="nav-link dropdown-toggle" id="searchDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                    aria-labelledby="searchDropdown">
-                    <form class="form-inline mr-auto w-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search"
-                                aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" aria-label="buscar">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </li>
 
             <li id="cart-carrito" class="nav-item dropdown no-arrow mx-1" role="button">
                 <a class="nav-link dropdown-toggle"  id="messagesDropdown">
@@ -44,7 +19,7 @@ $(document).ready(function(){
            
             <!-- Nav Item - Alerts -->
             <li id="notificar" class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" id="alertsDropdown" role="button"
+                <a class="nav-link dropdown-toggle animate__animated animate__heartBeat" id="alertsDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bell fa-fw"></i>
                     <!-- Counter - Alerts -->
@@ -110,8 +85,8 @@ $(document).ready(function(){
                 <a class="nav-link dropdown-toggle" " id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span id="sesion_name" class="mr-2 d-none d-lg-inline text-gray-600 small">${usuario.nombre+' '+usuario.apellido}</span>
-                    <img id="sesion_avatar" class="img-profile rounded-circle"
-                        src="${usuario.avatar}" alt="Imagen usuario" >
+                    <img id="sesion_avatar" class="img-profile rounded-circle animate__animated animate__zoomIn"
+                        src="../util/img/user/${usuario.avatar}" alt="Imagen usuario" >
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -145,7 +120,7 @@ $(document).ready(function(){
     <li class="nav-item active">
         <a class="nav-link" href="control">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Panel control</span></a>
     </li>
 
     <!-- Divider -->
@@ -205,8 +180,9 @@ $(document).ready(function(){
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pagos:</h6>
-                <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card"></i> Gestion Tipo pago</a>
-                <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins"></i> Gestion Cuenta</a>
+                <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card mr-2"></i>Gestion Tipo pago</a>
+                <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins mr-2"></i>Gestion Cuenta</a>
+                <a class="collapse-item" href="citas"><i class="fas fa-calendar-alt mr-2"></i>Gestion Citas</a>
             </div>
         </div>
     </li>
@@ -227,9 +203,52 @@ $(document).ready(function(){
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Almacén:</h6>
-                <a class="collapse-item" href="categoria"><i class="fas fa-fw fa-credit-card"></i> Gestion Categoria</a>
-                <a class="collapse-item" href="marca"><i class="fas fa-fw fa-credit-card"></i> Gestion Marca</a>
-                <a class="collapse-item" href="productos"><i class="fas fa-fw fa-coins"></i> Gestion Producto</a>
+                <a class="collapse-item" href="categoria"><i class="fas fa-th-list mr-2"></i>Gestion Categoria</a>
+                <a class="collapse-item" href="marca"><i class="fas fa-lg fa-tags mr-2"></i>Gestion Marca</a>
+                <a class="collapse-item" href="productos"><i class="fas fa-lg fa-cube mr-2"></i>Gestion Producto</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+    Compras
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsecompra" aria-expanded="true"
+            aria-controls="collapsecompra">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Compras</span>
+        </a>
+        <div id="collapsecompra" class="collapse" aria-labelledby="headingcompra"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Compra:</h6>
+                <a class="collapse-item" href="proveedor"><i class="fas fa-truck mr-2"></i>Gestion Proveedor</a>
+                <a class="collapse-item" href="compras"><i class="fas fa-people-carry mr-2"></i>Gestion Compras</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+    Ventas
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseventa" aria-expanded="true"
+            aria-controls="collapseventa">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Ventas</span>
+        </a>
+        <div id="collapseventa" class="collapse" aria-labelledby="headingventa"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Venta:</h6>
+                <a class="collapse-item" href="listVenta"><i class="fas fa-clipboard-list mr-2"></i></i>Listar ventas</a>
             </div>
         </div>
     </li>
@@ -304,10 +323,10 @@ $(document).ready(function(){
     if(data.ok){
       let response = await data.text();
       try {
-        let respuesta = JSON.parse(response);
-        if(respuesta.length != 0){
-          llenar_menu_superior(respuesta);
-          llenar_menu_lateral(respuesta);
+        let usuario = JSON.parse(response);
+        if(usuario.length != 0){
+          llenar_menu_superior(usuario);
+          llenar_menu_lateral(usuario);
           obtener_usuario();
           $('#cart-carrito').hide();
           $('#notificar').show();
@@ -348,7 +367,6 @@ $(document).ready(function(){
       let response = await data.text();
       try {
         let usuario = JSON.parse(response);
-        console.log(usuario);
         let template = `
         <img data-nombre="${usuario.nombre}" 
             data-apellido="${usuario.apellido}" 
@@ -380,8 +398,8 @@ $(document).ready(function(){
         <button data-nombre="${usuario.nombre}" 
                 data-apellido="${usuario.apellido}" 
                 data-avatar="${usuario.avatar}" 
-            class="editar_password btn btn-dark btn-block" type="button" data-toggle="modal"
-            data-target="#cambiar_contra">Cambiar contraseña</button>
+            class="editar_password btn btn-outline-dark btn-circle" type="button" data-toggle="modal"
+            data-target="#cambiar_contra" title="Cambiar contraseña"><i class="fas fa-key"></i></button>
         `;
         $('#card_1').html(template);
         let template_1 = `
@@ -444,8 +462,6 @@ $(document).ready(function(){
   async function editar_perfil(datos){
     let data = await fetch('../controllers/UsuarioController.php',{
       method: "POST",
-      //en este caso ya no necesita headers por tema de fordata
-      //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       body: datos
 
     })
@@ -544,7 +560,6 @@ $(document).ready(function(){
 
   $(document).on('click','.editar_avatar',function(){
     let elemento = $(this);
-    console.log(elemento);
     let nombre = $(elemento).data('nombre');
     let apellido = $(elemento).data('apellido');
     let avatar = $(elemento).data('avatar');
@@ -556,8 +571,6 @@ $(document).ready(function(){
   async function editar_avatar(datos){
     let data = await fetch('../controllers/UsuarioController.php',{
       method: "POST",
-      //en este caso ya no necesita headers por tema de fordata
-      //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       body: datos
 
     })
@@ -763,128 +776,5 @@ $(document).ready(function(){
       })
     }
   }
-  /*var funcion = '';
-  var id_user = $('#id_user').val();
-  var edit = false;
-  //console.log(id_user);
-  buscar_usuario(id_user);
-  function buscar_usuario(dato) {
-    funcion = 'buscar_usuario';
-    $.post('../controllers/UsuarioController.php',{dato, funcion}, (response)=>{
-      console.log(response);
-      let nombre = '';
-      let apellidos = '';
-      let numero = '';
-      let direccion = '';
-      let telefono = '';
-      let correo = '';
-      const usuario = JSON.parse(response);
-      nombre+= `${usuario.nombre}`;
-      apellidos+= `${usuario.apellidos}`;
-      numero+= `${usuario.numero}`;
-      telefono+= `${usuario.telefono}`;
-      direccion+= `${usuario.direccion}`;
-      correo+= `${usuario.correo}`;
-      $('#perfil_nombre').html(nombre);
-      $('#perfil_apellidos').html(apellidos);
-      $('#perfil_dni').html(numero);
-      $('#perfil_telefono').html(telefono);
-      $('#perfil_direccion').html(direccion);
-      $('#perfil_correo').html(correo);
-      $('#perfil_avatar').attr('src',usuario.avatar);
-      $('#sesion_name').html(nombre);
-      $('#sesion_avatar').attr('src',usuario.avatar);
-    });
-  }
-
-  $(document).on('click', '.edit', (e)=>{
-    funcion= "capturar_datos";
-    edit = true;
-    $.post('../controllers/UsuarioController.php',{funcion, id_user}, (response)=>{
-      const usuario = JSON.parse(response);
-      $('#telefono').val(usuario.telefono);
-      $('#direccion').val(usuario.direccion);
-      $('#correo').val(usuario.correo);
-    })
-  })
-
-  $('#form_perfil').submit(e=>{
-    if(edit == true){
-      let direccion= $('#direccion').val();
-      let telefono= $('#telefono').val();
-      let correo= $('#correo').val();
-      funcion = "editar_user";
-      $.post('../controllers/UsuarioController.php',{id_user,funcion,telefono,direccion,correo}, (response)=>{
-        if (response == 'editado'){
-          $('#editado').hide('slow');
-          $('#editado').show(1000);
-          $('#editado').hide(2000);
-          $('#form_perfil').trigger('reset');
-        }
-        edit = false;
-        buscar_usuario(id_user);
-        
-      })
-    }else{
-      $('#noeditado').hide('slow');
-      $('#noeditado').show(1000);
-      $('#noeditado').hide(2000);
-      $('#form_perfil').trigger('reset');
-    }
-
-    e.preventDefault();
-  });
-
-  $('#form-avatar').submit(e=>{
-    let formData= new FormData($('#form-avatar')[0]);
-    $.ajax({
-      url:'../controllers/UsuarioController.php',
-      type:'POST',
-      data:formData,
-      cache:false,
-      processData:false,
-      contentType:false
-
-    }).done(function(response){
-      const json = JSON.parse(response);
-      console.log(json);
-      if(json.alert == 'edit'){
-        $('#avatar1').attr('src',json.ruta);
-        $('#edit').hide('slow');
-        $('#edit').show(1000);
-        $('#edit').hide(2000);
-        $('#form-avatar').trigger('reset');
-        buscar_usuario(id_user);
-      }else{
-        $('#noedit').hide('slow');
-        $('#noedit').show(1000);
-        $('#noedit').hide(2000);
-        $('#form-avatar').trigger('reset');
-      }
-    });
-    e.preventDefault();
-  })
-
-  $('#form-pass').submit(e=>{
-    let oldpass=$('#oldpass').val();
-    let newpass=$('#newpass').val();
-    funcion = "cambiar_contra";
-    $.post('../controllers/UsuarioController.php',{id_user,funcion, oldpass, newpass}, (response)=>{
-      console.log(response);
-      if (response == 'update'){
-        $('#update').hide('slow');
-        $('#update').show(1000);
-        $('#update').hide(2000);
-        $('#form-pass').trigger('reset');
-      }else{
-        $('#noupdate').hide('slow');
-        $('#noupdate').show(1000);
-        $('#noupdate').hide(2000);
-        $('#form-pass').trigger('reset');
-      }
-      
-    })
-    e.preventDefault();
-  })*/
-
+  
 });

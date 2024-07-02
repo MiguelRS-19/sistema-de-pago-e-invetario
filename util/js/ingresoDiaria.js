@@ -8,32 +8,7 @@ $(document).ready(function() {
 
     function llenar_menu_superior(usuario) {
         let template = `
-            <button type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" aria-label="presionar">
-                <i class="fa fa-bars"></i>
-            </button>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown no-arrow d-sm-none">
-                    <a class="nav-link dropdown-toggle" id="searchDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-search fa-fw"></i>
-                    </a>
-                    <!-- Dropdown - Messages -->
-                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                        aria-labelledby="searchDropdown">
-                        <form class="form-inline mr-auto w-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small"
-                                    placeholder="Search for..." aria-label="Search"
-                                    aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" aria-label="buscar">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
 
                 <li id="cart-carrito" class="nav-item dropdown no-arrow mx-1" role="button">
                     <a class="nav-link dropdown-toggle"  id="messagesDropdown">
@@ -110,8 +85,8 @@ $(document).ready(function() {
                     <a class="nav-link dropdown-toggle" " id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span id="sesion_name" class="mr-2 d-none d-lg-inline text-gray-600 small">${usuario.nombre+' '+usuario.apellido}</span>
-                        <img id="sesion_avatar" class="img-profile rounded-circle"
-                            src="${usuario.avatar}" alt="Imagen usuario" >
+                        <img id="sesion_avatar" class="img-profile rounded-circle animate__animated animate__zoomIn"
+                            src="../util/img/user/${usuario.avatar}" alt="Imagen usuario" >
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -145,7 +120,7 @@ $(document).ready(function() {
         <li class="nav-item active">
             <a class="nav-link" href="control">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Panel control</span></a>
         </li>
 
         <!-- Divider -->
@@ -205,8 +180,9 @@ $(document).ready(function() {
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pagos:</h6>
-                    <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card"></i> Gestion Tipo pago</a>
-                    <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins"></i> Gestion Cuenta</a>
+                    <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card mr-2"></i>Gestion Tipo pago</a>
+                    <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins mr-2"></i>Gestion Cuenta</a>
+                    <a class="collapse-item" href="citas"><i class="fas fa-calendar-alt mr-2"></i>Gestion Citas</a>
                 </div>
             </div>
         </li>
@@ -215,7 +191,7 @@ $(document).ready(function() {
         <div class="sidebar-heading">
         Almacén
         </div>
-    
+
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsealmacen" aria-expanded="true"
@@ -227,9 +203,52 @@ $(document).ready(function() {
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Almacén:</h6>
-                    <a class="collapse-item" href="categoria"><i class="fas fa-fw fa-credit-card"></i> Gestion Categoria</a>
-                    <a class="collapse-item" href="marca"><i class="fas fa-fw fa-credit-card"></i> Gestion Marca</a>
-                    <a class="collapse-item" href="productos"><i class="fas fa-fw fa-coins"></i> Gestion Producto</a>
+                    <a class="collapse-item" href="categoria"><i class="fas fa-th-list mr-2"></i>Gestion Categoria</a>
+                    <a class="collapse-item" href="marca"><i class="fas fa-lg fa-tags mr-2"></i>Gestion Marca</a>
+                    <a class="collapse-item" href="productos"><i class="fas fa-lg fa-cube mr-2"></i>Gestion Producto</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+        Compras
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsecompra" aria-expanded="true"
+                aria-controls="collapsecompra">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Compras</span>
+            </a>
+            <div id="collapsecompra" class="collapse" aria-labelledby="headingcompra"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Compra:</h6>
+                    <a class="collapse-item" href="proveedor"><i class="fas fa-truck mr-2"></i>Gestion Proveedor</a>
+                    <a class="collapse-item" href="compras"><i class="fas fa-people-carry mr-2"></i>Gestion Compras</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+        Ventas
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseventa" aria-expanded="true"
+                aria-controls="collapseventa">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Ventas</span>
+            </a>
+            <div id="collapseventa" class="collapse" aria-labelledby="headingventa"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Venta:</h6>
+                    <a class="collapse-item" href="listVenta"><i class="fas fa-clipboard-list mr-2"></i></i>Listar ventas</a>
                 </div>
             </div>
         </li>
@@ -374,7 +393,6 @@ $(document).ready(function() {
         }
     
     }
-
     $.validator.setDefaults({
         submitHandler: function () {
             Mostrar_Loader('GenerarReportePDF');
@@ -387,26 +405,26 @@ $(document).ready(function() {
     $('#form_reporte').validate({
         rules: {
             fecha_diaria: {
-              required: true,
+                required: true,
             }
         },
         messages: {
             fecha_diaria: {
-              required: "*Dato requerido",
+                required: "*Dato requerido",
             }
         },
         errorElement: 'span',
         errorPlacement: function (error, element) {
-          error.addClass('invalid-feedback');
-          element.closest('.form-group').append(error);
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
         },
         highlight: function (element, errorClass, validClass) {
-          $(element).addClass('is-invalid');
-          $(element).removeClass('is-valid');
+            $(element).addClass('is-invalid');
+            $(element).removeClass('is-valid');
         },
         unhighlight: function (element, errorClass, validClass) {
-          $(element).removeClass('is-invalid');
-          $(element).addClass('is-valid');
+            $(element).removeClass('is-invalid');
+            $(element).addClass('is-valid');
         }
     });
 
@@ -450,12 +468,12 @@ $(document).ready(function() {
             break;
         }
         if(mostrar){
-        Swal.fire({
-            position: 'center',
-            icon: tipo,
-            text: texto,
-            showConfirmButton: false,
-        });
+            Swal.fire({
+                position: 'center',
+                icon: tipo,
+                text: texto,
+                showConfirmButton: false,
+            });
         }
     }
 

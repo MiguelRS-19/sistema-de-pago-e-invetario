@@ -5,8 +5,8 @@ include_once 'layout/header.php';
 
 
 <!-- Modal -->
-<div class="modal fade" id="mensaje_cli" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
+<div class="modal fade animate__animated animate__zoomInLeft" id="mensaje_cli" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 						<div class="modal-header" style="background:#25D366;">
 								<h5 class="modal-title text-white">Enviar una notificacion al whatsapp</h5>
@@ -17,6 +17,7 @@ include_once 'layout/header.php';
 									<div class="col-lg-12 md-3">
 											<div class="form-group">
 												<label class="small mb-1" for="fecha_mensaje">Fecha</label>
+                        <!--<input id="fecha_mensaje" name="fecha_mensaje" type="date" class="form-control" placeholder="Fecha 5 días antes">-->
 												<select name="fecha_mensaje" id="fecha_mensaje" class="form-control select2" style="width: 100%;">
 													<option value="" disabled selected>Seleciona el día...</option>
 													<option value="23">23</option>
@@ -40,7 +41,7 @@ include_once 'layout/header.php';
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="crear_cliente" role="dialog">
+<div class="modal fade animate__animated animate__bounceInDown" id="crear_cliente" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -110,7 +111,7 @@ include_once 'layout/header.php';
 
 
 <!-- Modal -->
-<div class="modal fade" id="editar_cliente" role="dialog">
+<div class="modal fade animate__animated animate__bounceInDown" id="editar_cliente" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -179,7 +180,7 @@ include_once 'layout/header.php';
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="ver_historial" role="dialog">
+<div class="modal fade animate__animated animate__zoomInDown" id="ver_historial" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -296,7 +297,7 @@ include_once 'layout/header.php';
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800 d-sm-flex align-items-center justify-content-between">Cliente
+        <h1 class="animate__animated animate__bounce h3 mb-4 text-gray-800 d-sm-flex align-items-center justify-content-between">Cliente
         </h1>
 
         <!-- DataTales Example -->
@@ -308,7 +309,7 @@ include_once 'layout/header.php';
             </div>
             <div class="card-body">
 								<div class="table-responsive">
-										<table id="clientes" class="table  table-bordered table-hover" width="100%" cellspacing="0">
+										<table id="clientes" class="table  table-bordered table-condensed table-hover" width="100%" cellspacing="0">
 											<thead>
 													<tr>
 															<th>N°</th>
@@ -346,7 +347,6 @@ include_once 'layout/header.php';
 $('#num').keyup(function(e){
     e.preventDefault();
     dni=$('#num').val();
-    console.log(dni);
     $.ajax({
       url: '../controllers/consultaDNI/consultaDni.php',
       type: 'POST',
@@ -357,6 +357,12 @@ $('#num').keyup(function(e){
           $('#nombre').val(consult.body.preNombres);
           $('#apellido').val(consult.body.apePaterno+' '+consult.body.apeMaterno);
           $('#direccion').val(consult.body.desDireccion);
+          // Obtener la fecha en formato "dd/mm/yyyy"
+          var fecha = consult.body.feNacimiento ;
+            
+            // Convertir la fecha al formato "yyyy-MM-dd"
+            var fechaFormat = fecha.split('/').reverse().join('-');
+          $('#fecha_nac').val(fechaFormat);
         }
       }
     });
@@ -366,7 +372,6 @@ $('#num').keyup(function(e){
   $('#num_mod').keyup(function(e){
     e.preventDefault();
     dni=$('#num_mod').val();
-    console.log(dni);
     $.ajax({
       url: '../controllers/consultaDNI/consultaDni.php',
       type: 'POST',
@@ -377,49 +382,16 @@ $('#num').keyup(function(e){
           $('#nombre_mod').val(consult.body.preNombres);
           $('#apellido_mod').val(consult.body.apePaterno+' '+consult.body.apeMaterno);
           $('#direccion_mod').val(consult.body.desDireccion);
+          // Obtener la fecha en formato "dd/mm/yyyy"
+          var fecha = consult.body.feNacimiento ;
+            
+            // Convertir la fecha al formato "yyyy-MM-dd"
+            var fechaFormat = fecha.split('/').reverse().join('-');
+          $('#fecha_nac_mod').val(fechaFormat);
         }
       }
     });
     e.preventDefault();
   });
 
-  /*$('#numero').keyup(function(e){
-    e.preventDefault();
-    ruc=$('#ruc').val();
-    console.log(ruc);
-    $.ajax({
-      url: '../controllers/consultaRUC/consultaRuc.php',
-      type: 'POST',
-      data: 'ruc='+ruc,
-      dataType: 'json',
-      success: function(consult){
-        if(consult.body.numeroRuc== ruc){
-          //$('#direccion').val(consult.body.desDireccion);
-          console.log(consult.body.desDireccion);
-        }
-      }
-    });
-    e.preventDefault();
-  });*/
-
- /* $('#dni_mod').keyup(function(e){
-    e.preventDefault();
-    dni=$('#dni_mod').val();
-    console.log(dni);
-    $.ajax({
-      url: '../controllers/consultaDNI/consultaDni.php',
-      type: 'POST',
-      data: 'dni='+dni,
-      dataType: 'json',
-      success: function(consult){
-        if(consult.body.nuDni== dni){
-          $('#nombre_mod').val(consult.body.preNombres);
-          $('#apellido_mod').val(consult.body.apePaterno+' '+consult.body.apeMaterno);
-          $('#direccion_mod').val(consult.body.desDireccion);
-        }
-      }
-    });
-    e.preventDefault();
-
-  });*/
 </script>

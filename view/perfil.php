@@ -3,57 +3,9 @@ session_start();
 include_once 'layout/header.php';
 ?>
 
-<!-- Modal -->
-<div class="modal fade" id="modal_contra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cambiar Contraseña</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="text-center">
-                    <img id="avatar3" src="<?php echo $_SESSION['avatar'] ?>" class="profile-user-img img-fluid img-circle" width="80px" height="80px" alt="">
-                </div>
-                <div class="text-center">
-                    <b style="color:#0B7300;">
-                        <?php echo $_SESSION['nombre']; ?>
-                    </b>
-                </div>
-                <div class="alert alert-success text-center" id="update" style="display:none">
-                    <span><i class="fas fa-check m-1"></i>se cambio contraseña correctamente</span>
-                </div>
-                <div class="alert alert-danger text-center" id="noupdate" style="display:none">
-                    <span><i class="fas fa-times m-1"></i>La contraseña no se cambio</span>
-                </div>
-                <form id="form-pass">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
-                        </div>
-                        <input id="oldpass" type="password" class="form-control"
-                            placeholder="Ingrese contraseña actual">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                        </div>
-                        <input id="newpass" type="text" class="form-control" placeholder="Ingrese contraseña nueva">
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- Modal cambiar contraseña-->
-<div class="modal fade" id="cambiar_contra" tabindex="-1" aria-hidden="true">
+<div class="modal fade animate__animated animate__bounceInUp" id="cambiar_contra" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
@@ -105,7 +57,7 @@ include_once 'layout/header.php';
 </div>
 
 <!-- Modal editar perfil -->
-<div class="modal fade" id="editar_perfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade animate__animated animate__bounceInDown" id="editar_perfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
@@ -145,7 +97,7 @@ include_once 'layout/header.php';
 </div>
 
 <!-- Modal avatar-->
-<div class="modal fade" id="cambiar_avatar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade animate__animated animate__bounceInLeft" id="cambiar_avatar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
@@ -193,7 +145,7 @@ include_once 'layout/header.php';
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Perfil</h1>
+    <h1 class="h3 mb-4 text-gray-800 animate__animated animate__bounce">Perfil</h1>
 
     <div class="row">
         <div class="col-xl-6">

@@ -207,7 +207,11 @@ else if($_POST['funcion'] == 'mostrar_consultas'){
 
   $cuenta-> ingreso_mensual();
   foreach ($cuenta->objetos as $objeto) {
-    $ingreso_mensual = $objeto->ingreso_mensual;
+    if(!empty($objeto->ingreso_diaria)){
+      $ingreso_mensual = $objeto->ingreso_mensual;
+    }else{
+      $ingreso_mensual = 'S/0.00';
+    }
   }
 
   $cuenta-> ingreso_anual();

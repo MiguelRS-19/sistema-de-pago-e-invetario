@@ -1,11 +1,11 @@
 $(document).ready(function(){
-  Loader();
-  //setTimeout(verificar_sesion,2000);
-  //$('#productos').DataTable({})
-  verificar_sesion();
-  toastr.options={
-    "preventDuplicates":true,
-  }
+    Loader();
+    //setTimeout(verificar_sesion,2000);
+    bsCustomFileInput.init();
+    verificar_sesion();
+    toastr.options={
+        "preventDuplicates":true,
+    }
 
     $('#categoria').select2({
         placeholder: 'Selecione categoria...',
@@ -18,8 +18,31 @@ $(document).ready(function(){
             }
         }
     });
+    $('#categoria_mod').select2({
+        placeholder: 'Selecione categoria...',
+        language: {
+            noResult: function () {
+                return "No hay resultados"
+            },
+            searching: function () {
+                return "Buscando..."
+            }
+        }
+    });
 
     $('#marca').select2({
+        placeholder: 'Selecione marca...',
+        language: {
+            noResult: function () {
+                return "No hay resultados"
+            },
+            searching: function () {
+                return "Buscando..."
+            }
+        }
+    });
+
+    $('#marca_mod').select2({
         placeholder: 'Selecione marca...',
         language: {
             noResult: function () {
@@ -53,16 +76,8 @@ $(document).ready(function(){
             });
             $('#categoria').html(template);
             $('#categoria').val('').trigger('change');
-            /*let template1 = '';
-            docum.forEach(doc => {
-                if(doc.id == 1){
-                    template1+=`
-                    <option value="${doc.nombre}">${doc.nombre}</option>
-                    `;
-                }
-            });
-            $('#docum_mod').html(template1);
-            $('#docum_mod').val('').trigger('change');*/
+            $('#categoria_mod').html(template);
+            $('#categoria_mod').val('').trigger('change');
         } catch (error) {
             console.error(error);
             console.log(response);
@@ -105,16 +120,8 @@ $(document).ready(function(){
             });
             $('#marca').html(template);
             $('#marca').val('').trigger('change');
-            /*let template1 = '';
-            docum.forEach(doc => {
-                if(doc.id == 1){
-                    template1+=`
-                    <option value="${doc.nombre}">${doc.nombre}</option>
-                    `;
-                }
-            });
-            $('#docum_mod').html(template1);
-            $('#docum_mod').val('').trigger('change');*/
+            $('#marca_mod').html(template);
+            $('#marca_mod').val('').trigger('change');
         } catch (error) {
             console.error(error);
             console.log(response);
@@ -138,29 +145,8 @@ $(document).ready(function(){
 
     function llenar_menu_superior(usuario) {
         let template = `
-            <button type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" aria-label="presionar">
-                <i class="fa fa-bars"></i>
-            </button>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown no-arrow d-sm-none">
-                    <!-- Dropdown - Messages -->
-                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                        aria-labelledby="searchDropdown">
-                        <form class="form-inline mr-auto w-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small"
-                                    placeholder="Search for..." aria-label="Search"
-                                    aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" aria-label="buscar">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-
+                
                 <li id="cart-carrito" class="nav-item dropdown no-arrow mx-1" role="button">
                     <a class="nav-link dropdown-toggle">
                         <i class="fas fa-shopping-cart"></i>
@@ -235,8 +221,8 @@ $(document).ready(function(){
                     <a class="nav-link dropdown-toggle" " id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span id="sesion_name" class="mr-2 d-none d-lg-inline text-gray-600 small">${usuario.nombre+' '+usuario.apellido}</span>
-                        <img id="sesion_avatar" class="img-profile rounded-circle"
-                            src="${usuario.avatar}" alt="Imagen usuario" >
+                        <img id="sesion_avatar" class="img-profile rounded-circle animate__animated animate__zoomIn"
+                            src="../util/img/user/${usuario.avatar}" alt="Imagen usuario" >
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -270,7 +256,7 @@ $(document).ready(function(){
         <li class="nav-item active">
             <a class="nav-link" href="control">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Panel control</span></a>
         </li>
 
         <!-- Divider -->
@@ -330,8 +316,9 @@ $(document).ready(function(){
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pagos:</h6>
-                    <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card"></i> Gestion Tipo pago</a>
-                    <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins"></i> Gestion Cuenta</a>
+                    <a class="collapse-item" href="medios_pago"><i class="fas fa-fw fa-credit-card mr-2"></i>Gestion Tipo pago</a>
+                    <a class="collapse-item" href="cuentas"><i class="fas fa-fw fa-coins mr-2"></i>Gestion Cuenta</a>
+                    <a class="collapse-item" href="citas"><i class="fas fa-calendar-alt mr-2"></i>Gestion Citas</a>
                 </div>
             </div>
         </li>
@@ -352,9 +339,52 @@ $(document).ready(function(){
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Almacén:</h6>
-                    <a class="collapse-item" href="categoria"><i class="fas fa-fw fa-credit-card"></i> Gestion Categoria</a>
-                    <a class="collapse-item" href="marca"><i class="fas fa-fw fa-credit-card"></i> Gestion Marca</a>
-                    <a class="collapse-item" href="productos"><i class="fas fa-fw fa-coins"></i> Gestion Producto</a>
+                    <a class="collapse-item" href="categoria"><i class="fas fa-th-list mr-2"></i>Gestion Categoria</a>
+                    <a class="collapse-item" href="marca"><i class="fas fa-lg fa-tags mr-2"></i>Gestion Marca</a>
+                    <a class="collapse-item" href="productos"><i class="fas fa-lg fa-cube mr-2"></i>Gestion Producto</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+        Compras
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsecompra" aria-expanded="true"
+                aria-controls="collapsecompra">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Compras</span>
+            </a>
+            <div id="collapsecompra" class="collapse" aria-labelledby="headingcompra"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Compra:</h6>
+                    <a class="collapse-item" href="proveedor"><i class="fas fa-truck mr-2"></i>Gestion Proveedor</a>
+                    <a class="collapse-item" href="compras"><i class="fas fa-people-carry mr-2"></i>Gestion Compras</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+        Ventas
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseventa" aria-expanded="true"
+                aria-controls="collapseventa">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Ventas</span>
+            </a>
+            <div id="collapseventa" class="collapse" aria-labelledby="headingventa"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Venta:</h6>
+                    <a class="collapse-item" href="listVenta"><i class="fas fa-clipboard-list mr-2"></i></i>Listar ventas</a>
                 </div>
             </div>
         </li>
@@ -431,14 +461,14 @@ $(document).ready(function(){
         try {
             let respuesta = JSON.parse(response);
             if(respuesta.length != 0){
-            llenar_menu_superior(respuesta);
-            llenar_menu_lateral(respuesta);
-            $('#cat-carrito').hide();
-            $('#notificar').hide();
-            traer_productos();
-            obtener_categoria();
-            obtener_marca();
-            CloseLoader();
+                llenar_menu_superior(respuesta);
+                llenar_menu_lateral(respuesta);
+                $('#cart-carrito').hide();
+                $('#notificar').hide();
+                traer_productos();
+                obtener_categoria();
+                obtener_marca();
+                CloseLoader();
             }else{
             location.href = "../index";
 
@@ -475,8 +505,6 @@ $(document).ready(function(){
         let response = await data.text();
         try {
             let productos = JSON.parse(response);
-            console.log(productos[4].stock);
-            console.log(productos);
             $('#productos').DataTable({
             data: productos,
             "aaSorting": [],
@@ -493,14 +521,15 @@ $(document).ready(function(){
                         estado_span = `<span class="badge badge-danger"><b>Inactivo</b></span>`;
                     }
                     let stock = '';
-                    if(datos.stock < datos.stock_minimo){
+                    let intStock = Number(datos.stock);
+                    let StockMinimo = Number(datos.stock_minimo)
+                    if(intStock < StockMinimo){
                         stock = "Sin stock";
-                        console.log(stock);
                     }else{
                         stock = datos.stock;
                     }
                     let estado = '';
-                    if(datos.stock > datos.stock_minimo){
+                    if(intStock > StockMinimo){
                         estado = `<span class="badge badge-success"><b>Disponible</b></span>`;
                     }else{
                         estado = `<span class="badge badge-danger"><b>Agotado</b></span>`;
@@ -518,18 +547,18 @@ $(document).ready(function(){
                                     <ul class="ml-4 mb-0 fa-ul text-muted">
                                     <li class="mediun"><span class="fa-li"><i class="fas fa-lg fa-barcode"></i></span> Código: ${datos.codigo}</li>
                                     <li class="mediun"><span class="fa-li"><i class="fas fa-lg fa-coins"></i></span> Precio venta: ${datos.precio_venta}</li>
-                                    <li class="mediun"><span class="fa-li"><i class="fas fa-lg fa-prescription-bottle"></i></span> Descripción: ${datos.descripcion}</li>
-                                    <li class="mediun"><span class="fa-li"><img src="../util/img/subministro/prod_default.png" alt="tinta" width="80" height="80" class="img-circle img-fluid mb-1"></span> Presentación: ${datos.presentacion}</li>
+                                    <li class="mediun"><span class="fa-li"><i class="fas fa-stream"></i></span> Descripción: ${datos.descripcion}</li>
+                                    <li class="mediun"><span class="fa-li"><i class="fas fa-tasks"></i></span> Presentación: ${datos.presentacion}</li>
                                     </ul>
                                     </div>
                                     <div class="col-md-4">
                                     <ul class="ml-4 mb-0 fa-ul text-muted">
                                     <li class="mediun"><span class="fa-li"><i class="fas fa-lg fa-tags"></i></span> Marca: ${datos.marca}</li>
-                                    <li class="mediun"><span class="fa-li"><i class="fas fa-lg fa-clipboard-list"></i></span> Categoria: ${datos.categoria}</li>
+                                    <li class="mediun"><span class="fa-li"><i class="fas fa-layer-group"></i></span> Categoria: ${datos.categoria}</li>
                                     </ul>
                                     </div>
                                     <div class="col-md-4 text-center">
-                                    <img src="../util/img/subministro/${datos.imagen}" alt="tinta" width="80" height="90" class="img-circle img-fluid">
+                                    <img src="../util/img/productos/${datos.imagen}" alt="producto" width="80" height="90" class="img-circle img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -538,14 +567,12 @@ $(document).ready(function(){
                             <div class="text-right">`
                             if(datos.estado == 'A'){
                                 template+=`
-                                <button id="${datos.id}"
-                                class="editar_imagen btn btn-circle btn-sm btn-outline-info ml-2" title="Cambiar imagen" data-toggle="modal" data-target="#editar_imagen"><i class="fas fa-image"></i></button>
                                 </button>
                                 <button id="${datos.id}"
-                                codigo="${datos.codigo}"
                                 nombre="${datos.producto}"
                                 descripcion="${datos.descripcion}"
                                 presentacion="${datos.presentacion}"
+                                precio_compra="${datos.precio_compra}"
                                 precio_venta="${datos.precio_venta}"
                                 stock="${datos.stock}"
                                 stock_minimo="${datos.stock_minimo}"
@@ -553,12 +580,16 @@ $(document).ready(function(){
                                 idcat="${datos.idcat}"
                                 avatar="${datos.imagen}"
                                 class="editar_producto btn btn-circle btn-sm btn-outline-success ml-2" title="Editar producto" data-toggle="modal" data-target="#editar_producto"><i class="fas fa-pen-alt"></i></button>
+                                <button id="${datos.id}"
+                                nombre="${datos.producto}"
+                                avatar="${datos.imagen}"
+                                class="editar_imagen btn btn-circle btn-sm btn-outline-info ml-2" title="Cambiar imagen" data-toggle="modal" data-target="#editar_imagen"><i class="fas fa-image"></i></button>
                                 </button>
                                 <button id="${datos.id}"
                                 codigo="${datos.codigo}"
                                 nombre="${datos.producto}"
                                 avatar="${datos.imagen}"
-                                class="borrar btn btn-circle btn-sm btn-outline-danger ml-2" title="Eliminar producto"><i class="fas fa-trash"></i></button>
+                                class="eliminar btn btn-circle btn-sm btn-outline-danger ml-2" title="Eliminar producto"><i class="fas fa-trash"></i></button>
                                 
                                 `;
                             }else{
@@ -626,10 +657,11 @@ $(document).ready(function(){
             console.log(respuesta);
             if(respuesta.mensaje == 'success'){
                 toastr.success('Se registro el producto','Exito!')
-                obtener_productos();
+                traer_productos();
                 $('#crear_producto').modal('hide');
                 $("#form-registrar").trigger('reset');
-                $('#docum').val('').trigger('change');
+                $('#marca').val('').trigger('change');
+                $('#categoria').val('').trigger('change');
             }else if(respuesta.mensaje == 'error_producto'){
                 Swal.fire({
                     icon: 'error',
@@ -637,7 +669,8 @@ $(document).ready(function(){
                     text: 'El producto ya existe, pongase en contacto con el administrador del sistema'
                 });
                 $("#form-registrar").trigger('reset');
-                $('#docum').val('').trigger('change');
+                $('#marca').val('').trigger('change');
+                $('#categoria').val('').trigger('change');
             }else if(respuesta.mensaje == 'error_decrypt'){
                 Swal.fire({
                     position: 'center',
@@ -716,9 +749,13 @@ $(document).ready(function(){
             },
             stock: {
                 required: true,
+                number: true,
+                min: true
             },
             stock_minimo: {
                 required: true,
+                number: true,
+                range: [6, 12]
             },
             categoria: {
                 required: true,
@@ -751,10 +788,12 @@ $(document).ready(function(){
             stock: {
                 required: "*Porfavor, Ingrese stock",
                 number: "*El dato debe ser numéricos",
+                min: "Por favor ingrese un valor mayor o igual a 1."
             },
             stock_minimo: {
                 required: "*Porfavor, Ingrese stock minimo",
                 number: "*El dato debe ser numéricos",
+                range: "Por favor introduzca un valor entre 6 y 12."
             },
             categoria: {
                 required: "*Porfavor, Ingrese categoria",
@@ -778,32 +817,512 @@ $(document).ready(function(){
         }
     });
 
-  
 
-  function Loader(mensaje) {
-    if(mensaje=='' || mensaje==null){
-      mensaje = "cargando datos...";
-      Swal.fire({
-        position: 'center',
-        html: '<i class="fas fa-2x fa-sync-alt fa-spin"></i>',
-        title: mensaje,
-        showConfirmButton: false
-      })
-    }
-  }
+    $(document).on('click','.editar_producto',(e)=>{
+        let elemento = $(this)[0].activeElement;
+        let id = $(elemento).attr('id');
+        let nombre = $(elemento).attr('nombre');
+        let descripcion = $(elemento).attr('descripcion');
+        let presentacion = $(elemento).attr('presentacion');
+        let precio_compra = $(elemento).attr('precio_compra');
+        let precio_venta = $(elemento).attr('precio_venta');
+        let stock = $(elemento).attr('stock');
+        let stock_minimo = $(elemento).attr('stock_minimo');
+        let idmarca = $(elemento).attr('idmarca');
+        let idcat = $(elemento).attr('idcat');
+        console.log(idmarca, idcat);
+        //let avatar = $(elemento).attr('avatar');
+        $('#id').val(id);
+        $('#nombre_mod').val(nombre);
+        $('#descripcion_mod').val(descripcion);
+        $('#presentacion_mod').val(presentacion);
+        $('#precio_compra_mod').val(precio_compra);
+        $('#precio_venta_mod').val(precio_venta);
+        $('#stock_mod').val(stock);
+        $('#stock_minimo_mod').val(stock_minimo);
+        $('#marca_mod').val(idmarca).trigger('change');
+        $('#categoria_mod').val(idcat).trigger('change');
+    });
 
-  function CloseLoader(mensaje,tipo) {
-    if(mensaje=='' || mensaje==null){
-      Swal.close();
-    }else{
-      Swal.fire({
-        position: 'center',
-       icon: tipo,
-        title: mensaje,
-        showConfirmButton: false
-      })
+    async function editar_productos(datos){
+        let data = await fetch('../controllers/ProductoController.php',{
+            method: "POST",
+            //en este caso ya no necesita headers por tema de fordata
+            //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: datos
+    
+        })
+        if(data.ok){
+        let response = await data.text();
+        try {
+            let respuesta = JSON.parse(response);
+            if(respuesta.mensaje == 'success'){
+                toastr.success('Se Edito el producto','Exito!')
+                traer_productos();
+                $('#editar_producto').modal('hide');
+                $('#marca_mod').val('').trigger('change');
+                $('#categoria_mod').val('').trigger('change');
+                $("#form-editar").trigger('reset');
+            }else if(respuesta.mensaje == 'error_decrypt'){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'No volnere los datos',
+                    showConfirmButton: false,
+                    timer: 1000,
+                }).then(function(){
+                    location.reload();
+                })
+            }else if(respuesta.mensaje == 'error_sesion'){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Sesión finalizada',
+                    showConfirmButton: false,
+                    timer: 1000,
+                }).then(function(){
+                    location.href= '../index';
+                })
+            }
+        } catch (error) {
+            console.error(error);
+            console.log(response);
+            Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+            })
+        }
+    
+        }else{
+        Swal.fire({
+            icon: 'error',
+            title: data.statusText,
+            text: 'Hubo conflicto de codigo:'+data.status
+        })
+        }
     }
-  }
+    $.validator.setDefaults({
+    submitHandler: function () {
+        let datos = new FormData($('#form-editar')[0]);
+        let funcion = "editar_productos";
+        datos.append('funcion',funcion);
+        editar_productos(datos);
+    }
+    });
+    jQuery.validator.addMethod("letras",function(value) {
+        let campo = value.replace(/ /g,"");
+        let estado = /^[A-Za-z]+$/.test(campo);
+        return estado;
+    },"*Este campo solo permite letras")
+    $('#form-editar').validate({
+        rules: {
+            nombre_mod: {
+                required: true,
+                letras:true
+            },
+            descripcion_mod: {
+                required: true,
+            },
+            presentacion_mod: {
+                required: true,
+            },
+            precio_compra_mod: {
+                required: true,
+                number: true,
+            },
+            precio_venta_mod: {
+                required: true,
+                number: true,
+            },
+            stock_mod: {
+                required: true,
+                number: true,
+                min: true
+            },
+            stock_minimo_mod: {
+                required: true,
+                number: true,
+                range: [6, 12]
+            },
+            categoria_mod: {
+                required: true,
+            },
+            marca_mod: {
+                required: true,
+            }
+        },
+        messages: {
+            nombre_mod: {
+                required: "*Porfavor, Ingrese el nombre",
+            },
+            descripcion_mod: {
+                required: "*Porfavor, Ingrese descripcion",
+            },
+            presentacion_mod: {
+                required: "*Porfavor, Ingrese presentacion",
+            },
+            precio_compra_mod: {
+                required: "*Porfavor, Ingrese precio de compra",
+                number: "*El dato debe ser numéricos",
+            },
+            precio_venta_mod: {
+                required: "*Porfavor, Ingrese precio de venta",
+                number: "*El dato debe ser numéricos",
+            },
+            stock_mod: {
+                required: "*Porfavor, Ingrese stock",
+                number: "*El dato debe ser numéricos",
+                min: "Por favor ingrese un valor mayor o igual a 1."
+            },
+            stock_minimo_mod: {
+                required: "*Porfavor, Ingrese stock minimo",
+                number: "*El dato debe ser numéricos",
+                range: "Por favor introduzca un valor entre 6 y 12."
+            },
+            categoria_mod: {
+                required: "*Porfavor, Ingrese categoria",
+            },
+            marca_mod: {
+                required: "*Porfavor, Ingrese marca",
+            }
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+        error.addClass('invalid-feedback');
+        element.closest('.form-group').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+        $(element).addClass('is-invalid');
+        $(element).removeClass('is-valid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+        $(element).removeClass('is-invalid');
+        $(element).addClass('is-valid');
+        }
+    });
+
+    $(document).on('click','.editar_imagen',(e)=>{
+        let elemento = $(this)[0].activeElement;
+        let id = $(elemento).attr('id');
+        let nombre = $(elemento).attr('nombre');
+        let avatar = $(elemento).attr('avatar');
+        $('#avatar_id').val(id);
+        $("#nombre_avatar").text(nombre);
+        $("#avatar").attr('src','../util/img/productos/'+avatar);
+        $("#avatar1").val(avatar);
+    });
+    
+    async function editar_imagen(datos){
+        let data = await fetch('../controllers/ProductoController.php',{
+            method: "POST",
+            //en este caso ya no necesita headers por tema de fordata
+            //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: datos
+
+        })
+        if(data.ok){
+            let response = await data.text();
+            try {
+            let respuesta = JSON.parse(response);
+            if(respuesta.mensaje == 'success'){
+                toastr.success('Su avatar fue actualizado','Exito!')
+                traer_productos();
+                $('#editar_imagen').modal('hide');
+                $('#form_avatar').trigger('reset');
+            }else if(respuesta.mensaje == 'error_decrypt'){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'No volnere los datos',
+                    showConfirmButton: false,
+                    timer: 1000,
+                }).then(function(){
+                    location.reload();
+                })
+            }else if(respuesta.mensaje == 'error_sesion'){
+                Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Sesión finalizada',
+                showConfirmButton: false,
+                timer: 1000,
+                }).then(function(){
+                location.href= '../index';
+                })
+            }
+            } catch (error) {
+            console.error(error);
+            console.log(response);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+            })
+            }
+
+        }else{
+            Swal.fire({
+            icon: 'error',
+            title: data.statusText,
+            text: 'Hubo conflicto de codigo:'+data.status
+            })
+        }
+
+    }
+
+    $.validator.setDefaults({
+    submitHandler: function () {
+        let datos = new FormData($('#form_avatar')[0]);
+        let funcion = "editar_imagen";
+        datos.append('funcion',funcion);
+        editar_imagen(datos);
+    }
+    });
+    $('#form_avatar').validate({
+        rules: {
+            avatar_mod: {
+            required: true,
+            extension: 'png|jpg|jpeg|webp'
+            }
+        },
+        messages: {
+            avatar_mod: {
+            required: "*Dato requerido",
+            extension: "*Porfavor, Ingrese formato png, jpg, jpeg,webp"
+            }
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+            $(element).removeClass('is-valid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+            $(element).addClass('is-valid');
+        }
+    });
+
+
+    async function eliminar(id){
+        let funcion = 'eliminar';
+        let respuesta = '';
+        let data = await fetch('../controllers/ProductoController.php',{
+        method: "POST",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'funcion='+funcion+'&&id='+id
+    
+        })
+        if(data.ok){
+            let response = await data.text();
+            try {
+                respuesta = JSON.parse(response);
+                console.log(respuesta);
+                
+            } catch (error) {
+                console.error(error);
+                console.log(response);
+                Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+                })
+            }
+    
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: data.statusText,
+                text: 'Hubo conflicto de codigo:'+data.status
+            })
+        }
+        return respuesta;
+    }
+    $(document).on('click','.eliminar',(e)=>{
+        let elemento = $(this)[0].activeElement;
+        let id = $(elemento).attr('id');
+        let nombre = $(elemento).attr('nombre');
+        let avatar = $(elemento).attr('avatar');
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success ml-2",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: 'Deseas eliminar producto '+nombre+'?',
+            imageUrl: '../util/img/productos/'+avatar,
+            imageWidth: 200,
+            imageHeight: 200,
+            showCancelButton: true,
+            confirmButtonText: "Si, Borrar!",
+            cancelButtonText: "No, cancelar!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                eliminar(id).then(respuesta=>{
+                    if(respuesta.mensaje == 'success'){
+                        swalWithBootstrapButtons.fire({
+                            title: "Eliminado!",
+                            text: "El producto fue eliminado "+nombre+".",
+                            icon: "success"
+                        });
+                        traer_productos();
+                    }else if(respuesta.mensaje == 'error_decrypt'){
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'No volnere los datos',
+                            showConfirmButton: false,
+                            timer: 1000,
+                        }).then(function(){
+                            location.reload();
+                        })
+                    }else if(respuesta.mensaje == 'error_sesion'){
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'Sesión finalizada',
+                            showConfirmButton: false,
+                            timer: 1000,
+                        }).then(function(){
+                            location.href= '../index';
+                        })
+                    }
+                })
+            } else if (
+              /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelado!",
+                    text: "Cancelo la eliminación de producto",
+                    icon: "error"
+                });
+            }
+        });
+    })
+
+    async function activar(id){
+        let funcion = 'activar';
+        let respuesta = '';
+        let data = await fetch('../controllers/ProductoController.php',{
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: 'funcion='+funcion+'&&id='+id
+        })
+
+        if(data.ok){
+            let response = await data.text();
+            try {
+                respuesta = JSON.parse(response);
+            } catch (error) {
+                console.error(error);
+                console.log(response);
+                Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo conflicto en el sistema, póngase en contacto con el administrador'
+                })
+            }
+
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: data.statusText,
+                text: 'Hubo conflicto de codigo:'+data.status
+            })
+        }
+        return respuesta;
+    }
+    $(document).on('click','.activar',(e)=>{
+        let elemento = $(this)[0].activeElement;
+        let id = $(elemento).attr('id');
+        let nombre = $(elemento).attr('nombre');
+        let avatar = $(elemento).attr('avatar');
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success ml-2",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: 'Desea volver activar a '+nombre+'?',
+            imageUrl: '../util/img/productos/'+avatar,
+            imageWidth: 200,
+            imageHeight: 200,
+            showCancelButton: true,
+            confirmButtonText: "Si, Activar!",
+            cancelButtonText: "No, cancelar!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                activar(id).then(respuesta=>{
+                    if(respuesta.mensaje == 'success'){
+                        swalWithBootstrapButtons.fire({
+                            title: "Activado!",
+                            text: "El producto fue activado "+nombre+".",
+                            icon: "success"
+                        });
+                        traer_productos();
+                    }else if(respuesta.mensaje == 'error_sesion'){
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'Sesión finalizada',
+                            showConfirmButton: false,
+                            timer: 1000,
+                        }).then(function(){
+                            location.href= '../index';
+                        })
+                    }
+                })
+            } else if (
+              /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelado!",
+                    text: "Cancelo la activación de producto.",
+                    icon: "error"
+                });
+            }
+        });
+    })
+
+
+    function Loader(mensaje) {
+        if(mensaje=='' || mensaje==null){
+        mensaje = "cargando datos...";
+        Swal.fire({
+            position: 'center',
+            html: '<i class="fas fa-2x fa-sync-alt fa-spin"></i>',
+            title: mensaje,
+            showConfirmButton: false
+        })
+        }
+    }
+
+    function CloseLoader(mensaje,tipo) {
+        if(mensaje=='' || mensaje==null){
+        Swal.close();
+        }else{
+        Swal.fire({
+            position: 'center',
+        icon: tipo,
+            title: mensaje,
+            showConfirmButton: false
+        })
+        }
+    }
 
 });
 
@@ -1051,4 +1570,4 @@ let espanol = {
         "renameLabel": "Nuevo nombre para %s:"
     },
     "infoThousands": "."
-  } 
+} 

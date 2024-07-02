@@ -21,7 +21,7 @@ if($_POST['funcion'] == 'login'){
         $_SESSION['dni']= $usuario->objetos[0]->dni;
         $_SESSION['idtipo']= $usuario->objetos[0]->idtipo;
         $_SESSION['cargo']= $usuario->objetos[0]->cargo;
-        $_SESSION['avatar']= '../util/img/user/'.$usuario->objetos[0]->avatar;
+        $_SESSION['avatar']= $usuario->objetos[0]->avatar;
         $mensaje = 'success';
       }else{
         $mensaje = 'error_pass';
@@ -36,7 +36,7 @@ if($_POST['funcion'] == 'login'){
         $_SESSION['dni']= $usuario->objetos[0]->dni;
         $_SESSION['idtipo']= $usuario->objetos[0]->idtipo;
         $_SESSION['cargo']= $usuario->objetos[0]->cargo;
-        $_SESSION['avatar']= '../util/img/user/'.$usuario->objetos[0]->avatar;
+        $_SESSION['avatar']= $usuario->objetos[0]->avatar;
         $mensaje = 'success';
       }else{
         $mensaje = 'error_pass';
@@ -121,7 +121,7 @@ else if($_POST['funcion'] == 'editar_perfil'){
   $jsonstring = json_encode($json);
   echo $jsonstring;
   
-} 
+}
 else if($_POST['funcion'] == 'editar_avatar'){
   $mensaje = '';
   if(!empty($_SESSION['id'])){
@@ -132,6 +132,8 @@ else if($_POST['funcion'] == 'editar_avatar'){
     $avatar = $_SESSION['avatar'];
     if($avatar != 'user_default.jpg'){
       unlink('../util/img/user/'.$avatar);
+    }else{
+      $avatar;
     }
     $_SESSION['avatar'] = $nombre;
     $usuario-> editar_avatar($id_usuario,$nombre);
@@ -470,31 +472,6 @@ else if($_POST['funcion'] == 'editar_usuarios'){
   echo $jsonstring;
 }
 
-
-
-
-/************************************************************ */
-
-
-
-
-
-/*if($_POST['funcion'] == 'obtener_dato_mensaje'){
-  $usuario-> mensaje_usuario();
-  $json = array();
-  foreach ($usuario->objetos as $objeto) {
-    $json [] = array(
-      'id'=>$objeto->iduser,
-      'nombre'=>$objeto->nombre,
-      'telefono'=>$objeto->telefono,
-      'cancelar'=>$objeto->cancelar,
-      'fecha'=>$objeto->fecha,
-    );
-  }
-  $jsonstring = json_encode($json);
-  echo $jsonstring;
-  
-}*/
 
 
 if($_POST['funcion'] == 'mensaje_movil'){

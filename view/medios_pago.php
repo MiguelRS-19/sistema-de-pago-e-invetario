@@ -5,7 +5,7 @@ include_once 'layout/header.php';
 
 
 <!-- Modal -->
-<div class="modal fade" id="Crear_pago" role="dialog">
+<div class="modal fade animate__animated animate__bounceInDown" id="Crear_pago" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -30,7 +30,7 @@ include_once 'layout/header.php';
 
 
 <!-- Modal -->
-<div class="modal fade" id="editar_MediosPago" role="dialog">
+<div class="modal fade animate__animated animate__bounceInDown" id="editar_MediosPago" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -56,7 +56,7 @@ include_once 'layout/header.php';
 
 
 <!-- Modal avatar-->
-<div class="modal fade" id="editar_avatar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade animate__animated animate__bounceInDown" id="editar_avatar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
@@ -105,7 +105,7 @@ include_once 'layout/header.php';
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800">Medios de pago</h1>
+        <h1 class="h3 mb-4 text-gray-800 animate__animated animate__bounce">Medios de pago</h1>
 
         <div class="card shadow card-header-actions mb-4">
           <div class="card-header">

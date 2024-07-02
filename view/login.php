@@ -64,7 +64,7 @@ session_start();
                                                 id="password" name="password" autocomplete="additional-name" placeholder="Contraseña">
                                         </div>
                                         </div>
-                                        <button type="submit" class="btn btn-outline-dark btn-block">Login</button>
+                                        <button type="submit" class="btn btn-outline-dark btn-block">Iniciar sesion</button>
                                         <hr>         <!--guion-->
                                     </form>
                                     <hr>
@@ -99,21 +99,27 @@ session_start();
   <script src="../util/js/login.js"></script>
   <script src="../util/js/jquery.ripples.min.js"></script>
   <script>
-      $(document).ready(function(){
-      $('body').ripples({
-          resolution: 512, // Resolución más alta para una mayor precisión
-          dropRadius: 15, // Radio de las gotas, no muy grande para evitar saturar la pantalla
-          perturbance: 0.03, // Perturbación para generar pequeñas variaciones en las gotas
-          interactive: true, // Interacción con el usuario para hacer ondas con el mouse
-          interactionEvent: 'mousemove', // Evento de interacción con el mouse
-          hover: false, // Sin efecto al poner el mouse encima para evitar distracciones
-          frameRate: 30, // Frecuencia de actualización de las gotas
-          opacity: 0.3, // Opacidad de las gotas, no muy alta para evitar distracciones
-          background: '#000000' // Color de fondo, que contrasta bien con el efecto de agua
-      });
-  })
-  
+    $(document).ready(function(){
+        $('body').ripples({
+            resolution: 512, // Resolución más alta para una mayor precisión
+            dropRadius: 15, // Radio de las gotas, no muy grande para evitar saturar la pantalla
+            perturbance: 0.03, // Perturbación para generar pequeñas variaciones en las gotas
+            interactive: true, // Interacción con el usuario para hacer ondas con el mouse
+            interactionEvent: 'mousemove', // Evento de interacción con el mouse
+            hover: false, // Sin efecto al poner el mouse encima para evitar distracciones
+            frameRate: 30, // Frecuencia de actualización de las gotas
+            opacity: 0.3, // Opacidad de las gotas, no muy alta para evitar distracciones
+            background: '#000000' // Color de fondo, que contrasta bien con el efecto de agua
+        });
+
+        $(document).on('click','.facial',function(e){
+
+            e.preventDefault();
+            location.href = "reconocimientoFacial";
+        })
+    })
+    
+
   </script>
 </body>
 </html>
-

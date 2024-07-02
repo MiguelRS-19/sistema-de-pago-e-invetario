@@ -4,7 +4,7 @@ include_once 'layout/header.php';
 ?>
 
 <!-- Modal -->
-<div class="modal fade" id="crear_marca" role="dialog">
+<div class="modal fade animate__animated animate__bounceInDown" id="crear_marca" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -30,7 +30,7 @@ include_once 'layout/header.php';
 
 
 <!-- Modal -->
-<div class="modal fade" id="editar_marca" role="dialog">
+<div class="modal fade animate__animated animate__bounceInDown" id="editar_marca" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
         <div class="modal-header bg-dark">
@@ -60,7 +60,7 @@ include_once 'layout/header.php';
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800 d-sm-flex align-items-center justify-content-between">Marca
+        <h1 class="animate__animated animate__bounce h3 mb-4 text-gray-800 d-sm-flex align-items-center justify-content-between">Marca
         </h1>
 
         <!-- DataTales Example -->

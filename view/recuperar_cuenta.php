@@ -12,10 +12,6 @@
   <title>DIGITALTEI S.A.C - Recuperar cuenta</title>
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
   <!-- Custom styles for this template-->
   <link href="../util/css/main.min.css" type="text/css" rel="stylesheet">
   <link href="../util/css/sweetalert2.css" type="text/css" rel="stylesheet">
@@ -62,7 +58,7 @@
                         </div>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">Enviar</button>
+                    <button type="submit" class="btn btn-outline-dark btn-block">Enviar</button>
                   </form>
                   <hr>
                   <!--<div class="text-center">
@@ -92,7 +88,7 @@
   <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../util/js/sb-admin-2.min.js"></script>
+  <script src="../util/js/sb-admin-2.js"></script>
   <script src="../util/js/sweetalert2.js"></script>
   <script src="../util/js/recuperar_cuenta.js"></script>
 

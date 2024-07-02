@@ -135,6 +135,8 @@ else if($_POST['funcion'] == 'enviar_mensajes'){
     $telefono = $_POST['telefono_mensaje'];
     if($telefono  != 'null'){
       $dia = $_POST['fecha_mensaje'];
+      //date_default_timezone_set('America/Lima');
+      //$fecha_actual = date('d-m-Y');
       $dia_antes = (28-5);
       if($dia_antes == $dia){
         $ultramsg_token="uptc5mzi99dqpy84";//"sic3sl8d8bwekcsl"; // Ultramsg.com token
@@ -176,10 +178,6 @@ else if($_POST['funcion'] == 'obtener_cliente'){
   $jsonstring = json_encode($json);
   echo $jsonstring;
 }
-
-/******************************************************************** */
-
-
 
 
 
